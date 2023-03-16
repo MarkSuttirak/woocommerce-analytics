@@ -20,7 +20,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-NOTE2: If you cannot install npm packages due to the unexpected error, try running installation with --force.\
+NOTE2: If you cannot install npm packages due to the unexpected error, please try running installation with --force.\
 e.g. npm i react-router --force
 
 
