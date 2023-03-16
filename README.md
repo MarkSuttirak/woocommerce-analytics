@@ -4,8 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Additional npm directories
 
-npm install antd
-npm install bootstrap
+npm install antd\
+npm install bootstrap@v5.2.3
 
 ## Available Scripts
 
