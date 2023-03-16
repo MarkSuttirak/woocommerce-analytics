@@ -3,7 +3,7 @@ import '../App.css';
 import { Typography, Select, Space, Card, Button, DatePicker, Dropdown, Modal, Switch, Input, Table, Drawer } from 'antd';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipse, faEllipsisVertical, faChartSimple, faChartLine } from '@fortawesome/free-solid-svg-icons';
+import { faEllipse, faEllipsisVertical, faChartSimple, faChartLine, faCloudArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { Line, Column } from '@ant-design/plots';
 import { Link } from 'react-router-dom';
 
@@ -118,6 +118,23 @@ const WaTotalSales = () => {
     const { Title, Text, Paragraph } = Typography;
     const { RangePicker } = DatePicker;
 
+    const [ordersTable, setOrdersTable] = useState(true);
+    const [grossSalesTable, setGrossSalesTable] = useState(true);
+    const [returnsTable, setReturnsTable] = useState(true);
+    const [couponsTable, setCouponsTable] = useState(true);
+    const [netSalesTable, setNetSalesTable] = useState(true);
+    const [taxesTable, setTaxesTable] = useState(true);
+    const [shippingTable, setShippingTable] = useState(true);
+    const [totalSalesTable, setTotalSalesTable] = useState(true);
+
+    const [revenueTableOptions, setRevenueTableOptions] = useState(false);
+    const showRevenueTableOptions = () => {
+      setRevenueTableOptions(true);
+    };
+    const revenueTableCancel = () => {
+      setRevenueTableOptions(false);
+    };
+
     const dateOptions = [
         { value: 'today', label: 'Today' }, 
         { value: 'yesterday', label: 'Yesterday' },
@@ -139,16 +156,40 @@ const WaTotalSales = () => {
       const revenueData = [
         {
           key: '1',
-          name: 'Mike',
-          age: 32,
-          address: '10 Downing Street',
+          date: 'March 1, 2023',
+          orders: 0,
+          grossSales: '$0.00',
+          returns: '$0.00',
+          coupons: '$0.00',
+          netSales: '$0.00',
+          taxes: '$0.00',
+          shipping: '$0.00',
+          totalSales: '$0.00',
         },
         {
-          key: '2',
-          name: 'John',
-          age: 42,
-          address: '10 Downing Street',
-        },
+            key: '2',
+            date: 'March 2, 2023',
+            orders: 0,
+            grossSales: '$0.00',
+            returns: '$0.00',
+            coupons: '$0.00',
+            netSales: '$0.00',
+            taxes: '$0.00',
+            shipping: '$0.00',
+            totalSales: '$0.00',
+          },
+          {
+            key: '3',
+            date: 'March 3, 2023',
+            orders: 0,
+            grossSales: '$0.00',
+            returns: '$0.00',
+            coupons: '$0.00',
+            netSales: '$0.00',
+            taxes: '$0.00',
+            shipping: '$0.00',
+            totalSales: '$0.00',
+          },
       ];
       
       const revenueColumns = [
@@ -339,10 +380,41 @@ const WaTotalSales = () => {
             </div>
 
             <div className='mt-4 revenue-table card-with-table'>
-                <Card title="revenue">
+                <Card title="Revenue" extra={
+                    <Space>
+                        <Button type='ghost'>
+                            <Space>
+                            <FontAwesomeIcon icon={faCloudArrowDown} />
+                            Download
+                            </Space>
+                        </Button>
+                        <Button type="ghost" onClick={showRevenueTableOptions}>
+                            <FontAwesomeIcon icon={faEllipsisVertical}/>
+                        </Button>
+                    </Space>
+                }>
                     <Table columns={revenueColumns} dataSource={revenueData}/>
                 </Card>
             </div>
+
+            <Drawer title="Charts" placement="right" width="300px" open={revenueTableOptions} onClose={revenueTableCancel}>
+                <div className='row'>
+                    <div className='col-sm-3'>
+                        <Switch onChange={setOrdersTable}/>
+                    </div>
+                    <div className='col-sm-9'>
+                        <Paragraph>Orders</Paragraph>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-sm-3'>
+                        <Switch onChange={setGrossSalesTable}/>
+                    </div>
+                    <div className='col-sm-9'>
+                        <Paragraph>Gross sales</Paragraph>
+                    </div>
+                </div>
+            </Drawer>
         </div>
     )
 }

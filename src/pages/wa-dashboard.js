@@ -367,7 +367,7 @@ function WaDashboard() {
               <Title level={2}>Performance</Title>
             </div>
             <div className='col-sm-6 text-end'>
-              <Button onClick={showPerformanceOptions}>
+              <Button type="ghost" onClick={showPerformanceOptions}>
                 <FontAwesomeIcon icon={faEllipsisVertical}/>
               </Button>
             </div>
@@ -662,7 +662,7 @@ function WaDashboard() {
                 <Button type="ghost" onClick={showBarChart}>
                     <FontAwesomeIcon icon={faChartSimple}/>
                 </Button>
-                <Button onClick={showChartOptions}>
+                <Button type="ghost" onClick={showChartOptions}>
                     <FontAwesomeIcon icon={faEllipsisVertical}/>
                 </Button>
             </Space>
@@ -808,7 +808,7 @@ function WaDashboard() {
               <Title level={2}>Leaderboards</Title>
             </div>
             <div className='col-sm-6 text-end'>
-              <Button onClick={showLeaderOptions}>
+              <Button type="ghost" onClick={showLeaderOptions}>
                 <FontAwesomeIcon icon={faEllipsisVertical}/>
               </Button>
             </div>
