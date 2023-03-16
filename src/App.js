@@ -79,6 +79,17 @@ function App() {
     setChartOptions(false);
   };
 
+  const [LeaderOptions, setLeaderOptions] = useState(false);
+  const showLeaderOptions = () => {
+    setLeaderOptions(true);
+  };
+  const LeaderOk = () => {
+    setLeaderOptions(false);
+  };
+  const LeaderCancel = () => {
+    setLeaderOptions(false);
+  };
+
   const topCustomersData = [
     {
       key: '1',
@@ -506,6 +517,7 @@ function App() {
               </div>
             )
           }
+          <div class="w-100 d-none d-md-block my-2"></div>
           {
             (ordersChart) && (
               <div className='col-sm-6'>
@@ -524,6 +536,7 @@ function App() {
               </div>
             )
           }
+          <div class="w-100 d-none d-md-block my-2"></div>
           {
             (itemsSoldChart) && (
               <div className='col-sm-6'>
@@ -542,6 +555,7 @@ function App() {
               </div>
             )
           }
+          <div class="w-100 d-none d-md-block my-2"></div>
           {
             (discountedOrdersChart) && (
               <div className='col-sm-6'>
@@ -560,6 +574,7 @@ function App() {
               </div>
             )
           }
+          <div class="w-100 d-none d-md-block my-2"></div>
           {
             (totalTaxChart) && (
               <div className='col-sm-6'>
@@ -578,6 +593,7 @@ function App() {
               </div>
             )
           }
+          <div class="w-100 d-none d-md-block my-2"></div>
           {
             (shippingTaxChart) && (
               <div className='col-sm-6'>
@@ -596,6 +612,7 @@ function App() {
               </div>
             )
           }
+          <div class="w-100 d-none d-md-block my-2"></div>
           {
             (downloadsChart) && (
               <div className='col-sm-6'>
@@ -614,7 +631,7 @@ function App() {
               <Title level={2}>Leaderboards</Title>
             </div>
             <div className='col-sm-6 text-end'>
-              <Button onClick={showPerformanceOptions}>
+              <Button onClick={showLeaderOptions}>
                 <FontAwesomeIcon icon={faEllipsisVertical}/>
               </Button>
             </div>
@@ -622,6 +639,17 @@ function App() {
           <div className='row'>
             <div className='col-sm-6'>
               <Card title="Top Customers - Total Spend">
+                <Table dataSource={topCustomersData} columns={topCustomersColumns} />
+              </Card>
+            </div>
+            <div className='col-sm-6'>
+              <Card title="Top Coupons - Number of Orders">
+                <Table dataSource={topCustomersData} columns={topCustomersColumns} />
+              </Card>
+            </div>
+            <div class="w-100 d-none d-md-block my-2"></div>
+            <div className='col-sm-6'>
+              <Card title="Top categories - Items sold">
                 <Table dataSource={topCustomersData} columns={topCustomersColumns} />
               </Card>
             </div>
@@ -865,6 +893,17 @@ function App() {
             </div>
             <div className='col-sm-9'>
               <Paragraph>Downloads</Paragraph>
+            </div>
+        </div>
+      </Modal>
+
+      <Modal title="Leaderboards" style={{position:"relative",top:"80%",right:"-42%"}} mask={false} closable={false} width="300px" open={LeaderOptions} onOk={LeaderOk} onCancel={LeaderCancel}>
+        <div className='row'>
+            <div className='col-sm-3'>
+              <Switch defaultChecked onChange={setTotalSalesChart}/>
+            </div>
+            <div className='col-sm-9'>
+              <Paragraph>Total sales</Paragraph>
             </div>
         </div>
       </Modal>
