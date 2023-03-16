@@ -4,7 +4,7 @@ import { Typography, Select, Space, Card, Button, DatePicker, Dropdown, Modal, S
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipse, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
-import { Line } from '@ant-design/plots';
+import { Line, Column } from '@ant-design/plots';
 import { Link } from 'react-router-dom';
 
 function WaDashboard() {
@@ -973,6 +973,12 @@ function WaDashboard() {
               <Paragraph>Downloads</Paragraph>
             </div>
         </div>
+        <div className='row'>
+            <div className='col-sm-12'>
+              <Title level={5}>SECTION TITLE</Title>
+              <Input type="text" defaultValue="Charts" />
+            </div>
+        </div>
       </Drawer>
 
       <Drawer title="Leaderboards" placement="right" width="300px" open={LeaderOptions} onClose={LeaderCancel}>
@@ -1006,6 +1012,12 @@ function WaDashboard() {
             </div>
             <div className='col-sm-9'>
               <Paragraph>Top products - Items sold</Paragraph>
+            </div>
+        </div>
+        <div className='row'>
+            <div className='col-sm-12'>
+              <Title level={5}>SECTION TITLE</Title>
+              <Input type="text" defaultValue="Leaderboards" />
             </div>
         </div>
       </Drawer>
