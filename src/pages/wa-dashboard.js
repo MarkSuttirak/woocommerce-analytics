@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import '../App.css';
 import { Typography, Select, Space, Card, Button, DatePicker, Dropdown, Modal, Switch, Input, Table, Drawer } from 'antd';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipse, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import { Line } from '@ant-design/plots';
+import { Link } from 'react-router-dom';
 
 function WaDashboard() {
   const { RangePicker } = DatePicker;
@@ -297,17 +298,19 @@ function WaDashboard() {
             {
               (totalSales) && (
                   <div className='col-sm'>
-                  <Card>
-                    <Paragraph>Total sales</Paragraph>
-                    <Title level={3} className="row">
-                        <div className='col-sm-6'>
-                          $0.00
-                        </div>
-                        <div className='col-sm-6 text-end'>
-                          0%
-                        </div>
-                    </Title>
-                  </Card>
+                  <Link to="/total-sales">
+                    <Card>
+                        <Paragraph>Total sales</Paragraph>
+                        <Title level={3} className="row">
+                            <div className='col-sm-6'>
+                            $0.00
+                            </div>
+                            <div className='col-sm-6 text-end'>
+                            0%
+                            </div>
+                        </Title>
+                    </Card>
+                  </Link>
                 </div>
               )
             }
@@ -396,7 +399,6 @@ function WaDashboard() {
                 </div>
               )
             }
-            <div class="w-100 d-none d-md-block my-2"></div>
             {
               (netDiscount) && (
                   <div className='col-sm'>
@@ -499,7 +501,6 @@ function WaDashboard() {
                 </div>
               )
             }
-            <div class="w-100 d-none d-md-block my-2"></div>
             {
               (grossSales) && (
                   <div className='col-sm'>
@@ -569,7 +570,7 @@ function WaDashboard() {
         <div className='row'>
           {
             (totalSalesChart) && (
-              <div className='col-sm-6'>
+              <div className='col-sm-6 my-2'>
                 <Card title="Total sales">
                   <DemoLine />
                 </Card>
@@ -578,17 +579,16 @@ function WaDashboard() {
           }
           {
             (netSalesChart) && (
-              <div className='col-sm-6'>
+              <div className='col-sm-6 my-2'>
                 <Card title="Net sales">
                   <DemoLine />
                 </Card>
               </div>
             )
           }
-          <div class="w-100 d-none d-md-block my-2"></div>
           {
             (ordersChart) && (
-              <div className='col-sm-6'>
+              <div className='col-sm-6 my-2'>
                 <Card title="Orders">
                   <DemoLine />
                 </Card>
@@ -597,17 +597,16 @@ function WaDashboard() {
           }
           {
             (averageOrdersChart) && (
-              <div className='col-sm-6'>
+              <div className='col-sm-6 my-2'>
                 <Card title="Average order value">
                   <DemoLine />
                 </Card>
               </div>
             )
           }
-          <div class="w-100 d-none d-md-block my-2"></div>
           {
             (itemsSoldChart) && (
-              <div className='col-sm-6'>
+              <div className='col-sm-6 my-2'>
                 <Card title="Items sold">
                   <DemoLine />
                 </Card>
@@ -616,17 +615,16 @@ function WaDashboard() {
           }
           {
             (returnsChart) && (
-              <div className='col-sm-6'>
+              <div className='col-sm-6 my-2'>
                 <Card title="Returns">
                   <DemoLine />
                 </Card>
               </div>
             )
           }
-          <div class="w-100 d-none d-md-block my-2"></div>
           {
             (discountedOrdersChart) && (
-              <div className='col-sm-6'>
+              <div className='col-sm-6 my-2'>
                 <Card title="Discounted orders">
                   <DemoLine />
                 </Card>
@@ -635,17 +633,16 @@ function WaDashboard() {
           }
           {
             (grossDiscountedChart) && (
-              <div className='col-sm-6'>
+              <div className='col-sm-6 my-2'>
                 <Card title="Gross discounted">
                   <DemoLine />
                 </Card>
               </div>
             )
           }
-          <div class="w-100 d-none d-md-block my-2"></div>
           {
             (totalTaxChart) && (
-              <div className='col-sm-6'>
+              <div className='col-sm-6 my-2'>
                 <Card title="Total tax">
                   <DemoLine />
                 </Card>
@@ -654,17 +651,16 @@ function WaDashboard() {
           }
           {
             (orderTaxChart) && (
-              <div className='col-sm-6'>
+              <div className='col-sm-6 my-2'>
                 <Card title="Order tax">
                   <DemoLine />
                 </Card>
               </div>
             )
           }
-          <div class="w-100 d-none d-md-block my-2"></div>
           {
             (shippingTaxChart) && (
-              <div className='col-sm-6'>
+              <div className='col-sm-6 my-2'>
                 <Card title="Shipping tax">
                   <DemoLine />
                 </Card>
@@ -673,17 +669,16 @@ function WaDashboard() {
           }
           {
             (shippingChart) && (
-              <div className='col-sm-6'>
+              <div className='col-sm-6 my-2'>
                 <Card title="Shipping">
                   <DemoLine />
                 </Card>
               </div>
             )
           }
-          <div class="w-100 d-none d-md-block my-2"></div>
           {
             (downloadsChart) && (
-              <div className='col-sm-6'>
+              <div className='col-sm-6 my-2'>
                 <Card title="Downloads">
                   <DemoLine />
                 </Card>
@@ -707,7 +702,7 @@ function WaDashboard() {
           <div className='row'>
             {
               (topCustomers) && (
-              <div className='col-sm-6'>
+              <div className='col-sm-6 my-2'>
                 <Card title="Top Customers - Total Spend">
                   <Table dataSource={topCustomersData} columns={topCustomersColumns} />
                 </Card>
@@ -716,17 +711,16 @@ function WaDashboard() {
             }
             {
               (topCoupons) && (
-                <div className='col-sm-6'>
+                <div className='col-sm-6 my-2'>
                   <Card title="Top Coupons - Number of Orders">
                     <Table dataSource={topCouponData} columns={topCouponColumns} />
                   </Card>
                 </div>
               )
             }
-            <div class="w-100 d-none d-md-block my-2"></div>
             {
               (topCategories) && (
-                <div className='col-sm-6'>
+                <div className='col-sm-6 my-2'>
                   <Card title="Top categories - Items sold">
                     <Table dataSource={topCategoriesData} columns={topCategoriesColumns} />
                   </Card>
@@ -735,7 +729,7 @@ function WaDashboard() {
             }
             {
               (topProducts) && (
-                <div className='col-sm-6'>
+                <div className='col-sm-6 my-2'>
                   <Card title="Top products - Items sold">
                     <Table dataSource={topProductData} columns={topProductColumns} />
                   </Card>
