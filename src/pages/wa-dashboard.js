@@ -802,7 +802,7 @@ function WaDashboard() {
         </div>
       </div>
 
-      <div className='mt-4 leaderboards'>
+      <div className='mt-4 leaderboards card-with-table'>
         <div className='row'>
             <div className='col-sm-6'>
               <Title level={2}>Leaderboards</Title>

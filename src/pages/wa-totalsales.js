@@ -136,6 +136,69 @@ const WaTotalSales = () => {
         { value: 'previous year', label: 'Previous year' }
       ];
 
+      const revenueData = [
+        {
+          key: '1',
+          name: 'Mike',
+          age: 32,
+          address: '10 Downing Street',
+        },
+        {
+          key: '2',
+          name: 'John',
+          age: 42,
+          address: '10 Downing Street',
+        },
+      ];
+      
+      const revenueColumns = [
+        {
+          title: 'Date',
+          dataIndex: 'date',
+          key: 'date',
+        },
+        {
+          title: 'Orders',
+          dataIndex: 'orders',
+          key: 'orders',
+        },
+        {
+          title: 'Gross sales',
+          dataIndex: 'grossSales',
+          key: 'grossSales',
+        },
+        {
+            title: 'Returns',
+            dataIndex: 'returns',
+            key: 'returns',
+          },
+          {
+            title: 'Coupons',
+            dataIndex: 'coupons',
+            key: 'coupons',
+          },
+          {
+            title: 'Net sales',
+            dataIndex: 'netSales',
+            key: 'netSales',
+          },
+          {
+            title: 'Taxes',
+            dataIndex: 'taxes',
+            key: 'taxes',
+          },
+          {
+            title: 'Shipping',
+            dataIndex: 'shipping',
+            key: 'shipping',
+          },
+          {
+            title: 'Total sales',
+            dataIndex: 'totalSales',
+            key: 'totalSales',
+          },
+      ];
+
     return (
         <div className="App">
             <header className="App-header">
@@ -250,8 +313,8 @@ const WaTotalSales = () => {
                 </div>
             </div>
 
-            <div className='mt-4 total-sales-returns'>
-                <Card title="Gross sales" extra={
+            <div className='mt-4 total-sales-table'>
+                <Card title="Total sales" extra={
                     <>
                         <Select 
                             defaultValue="byday"
@@ -272,6 +335,12 @@ const WaTotalSales = () => {
                 }>
                     { (lineChart && <DemoLine /> ) }
                     { (barChart && <DemoColumn />)}
+                </Card>
+            </div>
+
+            <div className='mt-4 revenue-table card-with-table'>
+                <Card title="revenue">
+                    <Table columns={revenueColumns} dataSource={revenueData}/>
                 </Card>
             </div>
         </div>

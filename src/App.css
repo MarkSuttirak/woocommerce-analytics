@@ -8,20 +8,20 @@ a { text-decoration: none !important; }
   transition:all 200ms;
 }
 
-.performance .ant-card:hover {
+.performance .ant-card:hover, .performance .ant-card.active {
   color:#4096ff;
   border-color:#4096ff;
   transition:all 200ms;
 }
 
-.leaderboards .ant-card-body {
+.card-with-table .ant-card-body {
   padding:0 !important;
 }
 
-.leaderboards .ant-table-cell {
+.card-with-table .ant-table-cell {
   border-radius:0 !important;
 }
 
-.leaderboards .ant-table-cell:first-child {
+.card-with-table .ant-table-cell:first-child {
   padding-left:24px !important;
 }
