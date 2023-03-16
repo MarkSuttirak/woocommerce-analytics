@@ -2,11 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Additional npm directories
+## Additional npm packages
 
 npm install antd\
 npm install bootstrap@v5.2.3\
 npm install react-bootstrap bootstrap
+
+NOTE: After you installed Bootstrap, please import bootstrap framework through each page by typing the text below.
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ## Available Scripts
 
