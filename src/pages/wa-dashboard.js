@@ -3,7 +3,7 @@ import '../App.css';
 import { Typography, Select, Space, Card, Button, DatePicker, Dropdown, Modal, Switch, Input, Table, Drawer } from 'antd';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipse, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import { faEllipse, faEllipsisVertical, faChartSimple, faChartLine } from '@fortawesome/free-solid-svg-icons';
 import { Line, Column } from '@ant-design/plots';
 import { Link } from 'react-router-dom';
 
@@ -51,6 +51,71 @@ function WaDashboard() {
   
     return <Line {...config} />;
   };
+
+  const DemoColumn = () => {
+    const data = [
+      {
+        type: '家具家电',
+        sales: 38,
+      },
+      {
+        type: '粮油副食',
+        sales: 52,
+      },
+      {
+        type: '生鲜水果',
+        sales: 61,
+      },
+      {
+        type: '美容洗护',
+        sales: 145,
+      },
+      {
+        type: '母婴用品',
+        sales: 48,
+      },
+      {
+        type: '进口食品',
+        sales: 38,
+      },
+      {
+        type: '食品饮料',
+        sales: 38,
+      },
+      {
+        type: '家庭清洁',
+        sales: 38,
+      },
+    ];
+    const config = {
+      data,
+      xField: 'type',
+      yField: 'sales',
+      label: {
+        position: 'middle',
+        // 'top', 'bottom', 'middle',
+        style: {
+          fill: '#FFFFFF',
+          opacity: 0.6,
+        },
+      },
+      xAxis: {
+        label: {
+          autoHide: true,
+          autoRotate: false,
+        },
+      },
+      meta: {
+        type: {
+          alias: '类别',
+        },
+        sales: {
+          alias: '销售额',
+        },
+      },
+    };
+    return <Column {...config} />;
+  };
   
   const comparisonOptions = [
     { value: 'previous period', label: 'Previous period' },
@@ -80,6 +145,19 @@ function WaDashboard() {
   const LeaderCancel = () => {
     setLeaderOptions(false);
   };
+
+  const [lineChart, setLineChart] = useState(true);
+  const [barChart, setBarChart] = useState(false);
+
+  const showLineChart = () => {
+    setLineChart(true);
+    setBarChart(false);
+  }
+
+  const showBarChart = () => {
+    setBarChart(true);
+    setLineChart(false);
+  }
 
   const topCustomersData = [
     {
@@ -562,9 +640,17 @@ function WaDashboard() {
             <Title level={2}>Charts</Title>
           </div>
           <div className='col-sm-6 text-end'>
-            <Button onClick={showChartOptions}>
-              <FontAwesomeIcon icon={faEllipsisVertical}/>
-            </Button>
+            <Space>
+                <Button type="ghost" onClick={showLineChart}>
+                    <FontAwesomeIcon icon={faChartLine}/>
+                </Button>
+                <Button type="ghost" onClick={showBarChart}>
+                    <FontAwesomeIcon icon={faChartSimple}/>
+                </Button>
+                <Button onClick={showChartOptions}>
+                    <FontAwesomeIcon icon={faEllipsisVertical}/>
+                </Button>
+            </Space>
           </div>
         </div>
         <div className='row'>
@@ -572,7 +658,8 @@ function WaDashboard() {
             (totalSalesChart) && (
               <div className='col-sm-6 my-2'>
                 <Card title="Total sales">
-                  <DemoLine />
+                  { (lineChart && <DemoLine /> ) }
+                  { (barChart && <DemoColumn />)}
                 </Card>
               </div>
             )
@@ -581,7 +668,8 @@ function WaDashboard() {
             (netSalesChart) && (
               <div className='col-sm-6 my-2'>
                 <Card title="Net sales">
-                  <DemoLine />
+                { (lineChart && <DemoLine /> ) }
+                  { (barChart && <DemoColumn />)}
                 </Card>
               </div>
             )
@@ -590,7 +678,8 @@ function WaDashboard() {
             (ordersChart) && (
               <div className='col-sm-6 my-2'>
                 <Card title="Orders">
-                  <DemoLine />
+                { (lineChart && <DemoLine /> ) }
+                  { (barChart && <DemoColumn />)}
                 </Card>
               </div>
             )
@@ -599,7 +688,8 @@ function WaDashboard() {
             (averageOrdersChart) && (
               <div className='col-sm-6 my-2'>
                 <Card title="Average order value">
-                  <DemoLine />
+                { (lineChart && <DemoLine /> ) }
+                  { (barChart && <DemoColumn />)}
                 </Card>
               </div>
             )
@@ -608,7 +698,8 @@ function WaDashboard() {
             (itemsSoldChart) && (
               <div className='col-sm-6 my-2'>
                 <Card title="Items sold">
-                  <DemoLine />
+                { (lineChart && <DemoLine /> ) }
+                  { (barChart && <DemoColumn />)}
                 </Card>
               </div>
             )
@@ -617,7 +708,8 @@ function WaDashboard() {
             (returnsChart) && (
               <div className='col-sm-6 my-2'>
                 <Card title="Returns">
-                  <DemoLine />
+                { (lineChart && <DemoLine /> ) }
+                  { (barChart && <DemoColumn />)}
                 </Card>
               </div>
             )
@@ -626,7 +718,8 @@ function WaDashboard() {
             (discountedOrdersChart) && (
               <div className='col-sm-6 my-2'>
                 <Card title="Discounted orders">
-                  <DemoLine />
+                { (lineChart && <DemoLine /> ) }
+                  { (barChart && <DemoColumn />)}
                 </Card>
               </div>
             )
@@ -635,7 +728,8 @@ function WaDashboard() {
             (grossDiscountedChart) && (
               <div className='col-sm-6 my-2'>
                 <Card title="Gross discounted">
-                  <DemoLine />
+                { (lineChart && <DemoLine /> ) }
+                  { (barChart && <DemoColumn />)}
                 </Card>
               </div>
             )
@@ -644,7 +738,8 @@ function WaDashboard() {
             (totalTaxChart) && (
               <div className='col-sm-6 my-2'>
                 <Card title="Total tax">
-                  <DemoLine />
+                { (lineChart && <DemoLine /> ) }
+                  { (barChart && <DemoColumn />)}
                 </Card>
               </div>
             )
@@ -653,7 +748,8 @@ function WaDashboard() {
             (orderTaxChart) && (
               <div className='col-sm-6 my-2'>
                 <Card title="Order tax">
-                  <DemoLine />
+                { (lineChart && <DemoLine /> ) }
+                  { (barChart && <DemoColumn />)}
                 </Card>
               </div>
             )
@@ -662,7 +758,8 @@ function WaDashboard() {
             (shippingTaxChart) && (
               <div className='col-sm-6 my-2'>
                 <Card title="Shipping tax">
-                  <DemoLine />
+                { (lineChart && <DemoLine /> ) }
+                  { (barChart && <DemoColumn />)}
                 </Card>
               </div>
             )
@@ -671,7 +768,8 @@ function WaDashboard() {
             (shippingChart) && (
               <div className='col-sm-6 my-2'>
                 <Card title="Shipping">
-                  <DemoLine />
+                { (lineChart && <DemoLine /> ) }
+                  { (barChart && <DemoColumn />)}
                 </Card>
               </div>
             )
@@ -680,7 +778,8 @@ function WaDashboard() {
             (downloadsChart) && (
               <div className='col-sm-6 my-2'>
                 <Card title="Downloads">
-                  <DemoLine />
+                { (lineChart && <DemoLine /> ) }
+                  { (barChart && <DemoColumn />)}
                 </Card>
               </div>
             )
