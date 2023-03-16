@@ -260,8 +260,7 @@ const WaTotalSales = () => {
             <div className='mt-4 performance'>
                 <div className='row'>
                     <div className='col-sm-3'>
-                    <Link to="/gross-sales">
-                        <Card>
+                        <Card className='active'>
                             <Paragraph>Gross sales</Paragraph>
                             <Title level={3} className="row">
                                 <div className='col-sm-6'>
@@ -272,7 +271,6 @@ const WaTotalSales = () => {
                                 </div>
                             </Title>
                         </Card>
-                    </Link>
                     </div>
                     <div className='col-sm-3'>
                         <Card>
@@ -341,7 +339,8 @@ const WaTotalSales = () => {
                         </Card>
                     </div>
                     <div className='col-sm-3'>
-                        <Card className='active'>
+                    <Link to="/total-sales">
+                        <Card>
                             <Paragraph>Total sales</Paragraph>
                             <Title level={3} className="row">
                                 <div className='col-sm-6'>
@@ -352,12 +351,13 @@ const WaTotalSales = () => {
                                 </div>
                             </Title>
                         </Card>
+                    </Link>
                     </div>
                 </div>
             </div>
 
             <div className='mt-4 total-sales-table'>
-                <Card title="Total sales" extra={
+                <Card title="Gross sales" extra={
                     <>
                         <Select 
                             defaultValue="byday"
