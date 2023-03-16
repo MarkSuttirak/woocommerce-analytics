@@ -192,6 +192,8 @@ const WaTotalSales = () => {
           },
       ];
       
+      
+    
       const revenueColumns = [
         {
           title: 'Date',
@@ -204,49 +206,57 @@ const WaTotalSales = () => {
           dataIndex: 'orders',
           key: 'orders',
           sorter: true,
+          className: (!ordersTable && 'hidden'),
         },
         {
           title: 'Gross sales',
           dataIndex: 'grossSales',
           key: 'grossSales',
           sorter: true,
+          className: (!grossSalesTable && 'hidden'),
         },
         {
             title: 'Returns',
             dataIndex: 'returns',
             key: 'returns',
             sorter: true,
+            className: (!returnsTable && 'hidden'),
           },
           {
             title: 'Coupons',
             dataIndex: 'coupons',
             key: 'coupons',
             sorter: true,
+            className: (!couponsTable && 'hidden'),
           },
           {
             title: 'Net sales',
             dataIndex: 'netSales',
             key: 'netSales',
             sorter: true,
+            className: (!netSalesTable && 'hidden'),
           },
           {
             title: 'Taxes',
             dataIndex: 'taxes',
             key: 'taxes',
             sorter: true,
+            className: (!taxesTable && 'hidden'),
           },
           {
             title: 'Shipping',
             dataIndex: 'shipping',
             key: 'shipping',
             sorter: true,
+            className: (!shippingTable && 'hidden'),
           },
           {
             title: 'Total sales',
             dataIndex: 'totalSales',
             key: 'totalSales',
             sorter: true,
-          },
+            className: (!totalSalesTable && 'hidden'),
+          },   
       ];
 
     return (
@@ -269,17 +279,17 @@ const WaTotalSales = () => {
             <div className='mt-4 performance'>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Card className='active'>
-                            <Paragraph>Gross sales</Paragraph>
-                            <Title level={3} className="row">
-                                <div className='col-sm-6'>
-                                $0.00
-                                </div>
-                                <div className='col-sm-6 text-end'>
-                                0%
-                                </div>
-                            </Title>
-                        </Card>
+                    <Card className='active'>
+                        <Paragraph>Gross sales</Paragraph>
+                        <Title level={3} className="row">
+                            <div className='col-sm-6'>
+                            $0.00
+                            </div>
+                            <div className='col-sm-6 text-end'>
+                            0%
+                            </div>
+                        </Title>
+                    </Card>
                     </div>
                     <div className='col-sm-3'>
                         <Card>
@@ -348,19 +358,19 @@ const WaTotalSales = () => {
                         </Card>
                     </div>
                     <div className='col-sm-3'>
-                    <Link to="/total-sales">
-                        <Card>
-                            <Paragraph>Total sales</Paragraph>
-                            <Title level={3} className="row">
-                                <div className='col-sm-6'>
-                                $0.00
-                                </div>
-                                <div className='col-sm-6 text-end'>
-                                0%
-                                </div>
-                            </Title>
-                        </Card>
-                    </Link>
+                        <Link to="/total-sales">
+                            <Card>
+                                <Paragraph>Total sales</Paragraph>
+                                <Title level={3} className="row">
+                                    <div className='col-sm-6'>
+                                    $0.00
+                                    </div>
+                                    <div className='col-sm-6 text-end'>
+                                    0%
+                                    </div>
+                                </Title>
+                            </Card>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -431,6 +441,46 @@ const WaTotalSales = () => {
                     </div>
                     <div className='col-sm-9'>
                         <Paragraph>Returns</Paragraph>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-sm-3'>
+                        <Switch defaultChecked onChange={setCouponsTable}/>
+                    </div>
+                    <div className='col-sm-9'>
+                        <Paragraph>Coupons</Paragraph>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-sm-3'>
+                        <Switch defaultChecked onChange={setNetSalesTable}/>
+                    </div>
+                    <div className='col-sm-9'>
+                        <Paragraph>Net sales</Paragraph>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-sm-3'>
+                        <Switch defaultChecked onChange={setTaxesTable}/>
+                    </div>
+                    <div className='col-sm-9'>
+                        <Paragraph>Taxes</Paragraph>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-sm-3'>
+                        <Switch defaultChecked onChange={setShippingTable}/>
+                    </div>
+                    <div className='col-sm-9'>
+                        <Paragraph>Shipping</Paragraph>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-sm-3'>
+                        <Switch defaultChecked onChange={setTotalSalesTable}/>
+                    </div>
+                    <div className='col-sm-9'>
+                        <Paragraph>Total sales</Paragraph>
                     </div>
                 </div>
             </Drawer>

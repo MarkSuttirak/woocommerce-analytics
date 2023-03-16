@@ -8,6 +8,10 @@ a { text-decoration: none !important; }
   transition:all 200ms;
 }
 
+.hidden {
+  display:none;
+}
+
 .performance .ant-card:hover, .performance .ant-card.active {
   color:#4096ff;
   border-color:#4096ff;
