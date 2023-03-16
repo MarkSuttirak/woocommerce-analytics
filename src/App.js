@@ -123,7 +123,7 @@ function App() {
     },
   ];
 
-  const topCouponData = [
+  const topProductData = [
     {
       key: '1',
       product: 'Deutsches Buch',
@@ -144,11 +144,89 @@ function App() {
     },
   ];
   
-  const topCouponColumns = [
+  const topProductColumns = [
     {
       title: 'Product',
       dataIndex: 'product',
       key: 'product',
+    },
+    {
+      title: 'Items sold',
+      dataIndex: 'itemsSold',
+      key: 'itemsSold',
+    },
+    {
+      title: 'Net sales',
+      dataIndex: 'netSales',
+      key: 'netSales',
+    },
+  ];
+
+  const topCouponData = [
+    {
+      key: '1',
+      coupon: 'Gutschein',
+      itemsSold: 10,
+      netSales: '$100',
+    },
+    {
+      key: '2',
+      coupon: 'coupon Test',
+      itemsSold: 1,
+      netSales: '$20',
+    },
+    {
+      key: '3',
+      coupon: 'Also coupon test',
+      itemsSold: 1,
+      netSales: '$30',
+    },
+  ];
+  
+  const topCouponColumns = [
+    {
+      title: 'Coupon',
+      dataIndex: 'coupon',
+      key: 'coupon',
+    },
+    {
+      title: 'Items sold',
+      dataIndex: 'itemsSold',
+      key: 'itemsSold',
+    },
+    {
+      title: 'Net sales',
+      dataIndex: 'netSales',
+      key: 'netSales',
+    },
+  ];
+
+  const topCategoriesData = [
+    {
+      key: '1',
+      category: 'Deutsche Kategorie',
+      itemsSold: 10,
+      netSales: '$100',
+    },
+    {
+      key: '2',
+      category: 'Category Test',
+      itemsSold: 1,
+      netSales: '$20',
+    },
+    {
+      key: '3',
+      category: 'Also category test',
+      itemsSold: 1,
+      netSales: '$30',
+    },
+  ];
+  
+  const topCategoriesColumns = [
+    {
+      title: 'Category',
+      dataIndex: 'category',
+      key: 'category',
     },
     {
       title: 'Items sold',
@@ -637,31 +715,47 @@ function App() {
             </div>
           </div>
           <div className='row'>
-            <div className='col-sm-6'>
-              <Card title="Top Customers - Total Spend">
-                <Table dataSource={topCustomersData} columns={topCustomersColumns} />
-              </Card>
-            </div>
-            <div className='col-sm-6'>
-              <Card title="Top Coupons - Number of Orders">
-                <Table dataSource={topCustomersData} columns={topCustomersColumns} />
-              </Card>
-            </div>
+            {
+              (topCustomers) && (
+              <div className='col-sm-6'>
+                <Card title="Top Customers - Total Spend">
+                  <Table dataSource={topCustomersData} columns={topCustomersColumns} />
+                </Card>
+              </div>
+              )
+            }
+            {
+              (topCoupons) && (
+                <div className='col-sm-6'>
+                  <Card title="Top Coupons - Number of Orders">
+                    <Table dataSource={topCouponData} columns={topCouponColumns} />
+                  </Card>
+                </div>
+              )
+            }
             <div class="w-100 d-none d-md-block my-2"></div>
-            <div className='col-sm-6'>
-              <Card title="Top categories - Items sold">
-                <Table dataSource={topCustomersData} columns={topCustomersColumns} />
-              </Card>
-            </div>
-            <div className='col-sm-6'>
-              <Card title="Top products - Items sold">
-                <Table dataSource={topCustomersData} columns={topCustomersColumns} />
-              </Card>
-            </div>
+            {
+              (topCategories) && (
+                <div className='col-sm-6'>
+                  <Card title="Top categories - Items sold">
+                    <Table dataSource={topCategoriesData} columns={topCategoriesColumns} />
+                  </Card>
+                </div>
+              )
+            }
+            {
+              (topProducts) && (
+                <div className='col-sm-6'>
+                  <Card title="Top products - Items sold">
+                    <Table dataSource={topProductData} columns={topProductColumns} />
+                  </Card>
+                </div>
+              )
+            }
           </div>
       </div>
 
-      <Modal title="Display Stats:" style={{position:"relative",top:"20%",right:"-42%"}} mask={false} closable={false} width="300px" open={performanceOptions} onOk={PerformanceOk} onCancel={PerformanceCancel}>
+      <Modal title="Display Stats:" mask={false} closable={false} width="300px" open={performanceOptions} onOk={PerformanceOk} onCancel={PerformanceCancel}>
         <div className='row'>
             <div className='col-sm-3'>
               <Switch defaultChecked onChange={setTotalSales}/>
@@ -790,7 +884,7 @@ function App() {
         </div>
       </Modal>
 
-      <Modal title="Charts" style={{position:"relative",top:"42%",right:"-42%"}} mask={false} closable={false} width="300px" open={chartOptions} onOk={ChartOk} onCancel={ChartCancel}>
+      <Modal title="Charts" mask={false} closable={false} width="300px" open={chartOptions} onOk={ChartOk} onCancel={ChartCancel}>
         <div className='row'>
             <div className='col-sm-3'>
               <Switch defaultChecked onChange={setTotalSalesChart}/>
@@ -897,13 +991,37 @@ function App() {
         </div>
       </Modal>
 
-      <Modal title="Leaderboards" style={{position:"relative",top:"80%",right:"-42%"}} mask={false} closable={false} width="300px" open={LeaderOptions} onOk={LeaderOk} onCancel={LeaderCancel}>
+      <Modal title="Leaderboards" mask={false} closable={false} width="300px" open={LeaderOptions} onOk={LeaderOk} onCancel={LeaderCancel}>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setTotalSalesChart}/>
+              <Switch defaultChecked onChange={setTopCustomers}/>
             </div>
             <div className='col-sm-9'>
-              <Paragraph>Total sales</Paragraph>
+              <Paragraph>Top Customers - Total Spend</Paragraph>
+            </div>
+        </div>
+        <div className='row'>
+            <div className='col-sm-3'>
+              <Switch defaultChecked onChange={setTopCoupons}/>
+            </div>
+            <div className='col-sm-9'>
+              <Paragraph>Top Coupons - Number of Orders</Paragraph>
+            </div>
+        </div>
+        <div className='row'>
+            <div className='col-sm-3'>
+              <Switch defaultChecked onChange={setTopCategories}/>
+            </div>
+            <div className='col-sm-9'>
+              <Paragraph>Top categories - Items sold</Paragraph>
+            </div>
+        </div>
+        <div className='row'>
+            <div className='col-sm-3'>
+              <Switch defaultChecked onChange={setTopProducts}/>
+            </div>
+            <div className='col-sm-9'>
+              <Paragraph>Top products - Items sold</Paragraph>
             </div>
         </div>
       </Modal>
