@@ -8,7 +8,7 @@ npm install antd\
 npm install bootstrap@v5.2.3\
 npm install react-bootstrap bootstrap
 
-NOTE: After you installed Bootstrap, please import bootstrap framework through each page by typing the text below.
+NOTE: After you installed Bootstrap, please import bootstrap CSS file through each page by typing the text below.
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
