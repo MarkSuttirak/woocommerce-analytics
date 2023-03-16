@@ -7,7 +7,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 npm install antd\
 npm install bootstrap@v5.2.3  -- bootstrap\
 npm install react-bootstrap bootstrap  -- bootstrap\
-npm i @fortawesome/fontawesome-free  -- font awesome
+npm i @fortawesome/fontawesome-free  -- font awesome\
+npm i @fortawesome/react-fontawesome\
+npm install --save @fortawesome/free-solid-svg-icons
 
 NOTE: After you installed Bootstrap, please import bootstrap CSS file through each page by typing the text below.
 

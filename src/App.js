@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import { Typography, Select, Space, Card, Button, DatePicker } from 'antd';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEllipse, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   const { RangePicker } = DatePicker;
@@ -9,9 +11,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className='d-inline-block'>
+      <div className='d-inline-block'>
           <Paragraph>Date range:</Paragraph>
-          <Space>
           <Select
             placeholder="Select a date range"
             style={{
@@ -60,6 +61,9 @@ function App() {
               },
             ]}
           />
+        </div>
+        <div className='d-inline-block ms-2'>
+          <Paragraph>Compare to:</Paragraph>
           <Select
             placeholder="Compare to"
             style={{
@@ -75,10 +79,8 @@ function App() {
                 label: 'Previous year',
               },
             ]} />
-          
-        </Space>
         </div>
-        <div className='d-inline-block' style={{paddingLeft:"8px"}}>
+        <div className='d-inline-block ms-2'>
           <Paragraph>Custom date range:</Paragraph>
           <RangePicker />
         </div>
@@ -91,7 +93,7 @@ function App() {
               <Title level={2}>Performance</Title>
             </div>
             <div className='col-sm-6 text-end'>
-              <Button>...</Button>
+              <Button><FontAwesomeIcon icon={faEllipsisVertical}/></Button>
             </div>
           </div>
           <div className='row'>
