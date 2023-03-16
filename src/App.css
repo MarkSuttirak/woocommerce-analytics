@@ -2,7 +2,14 @@
   padding:60px;
 }
 
-.five-cols {
-  flex: 20%;
-  max-width: 20%;
+.leaderboards .ant-card-body {
+  padding:0 !important;
+}
+
+.leaderboards .ant-table-cell {
+  border-radius:0 !important;
+}
+
+.leaderboards .ant-table-cell:first-child {
+  padding-left:24px !important;
 }

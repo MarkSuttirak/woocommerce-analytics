@@ -9,9 +9,13 @@ npm install bootstrap@v5.2.3  -- bootstrap\
 npm install react-bootstrap bootstrap  -- bootstrap\
 npm i @fortawesome/fontawesome-free  -- font awesome\
 npm i @fortawesome/react-fontawesome\
-npm install --save @fortawesome/free-solid-svg-icons
+npm install --save @fortawesome/free-solid-svg-icons\
+npm install @ant-design/charts
+npm i react-router
+
 
 NOTE: After you installed Bootstrap, please import bootstrap CSS file through each page by typing the text below.
+NOTE2: If you cannot install npm packages due to the unexpected error, try running installation with --force.
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
