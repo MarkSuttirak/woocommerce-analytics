@@ -1,3 +1,8 @@
 .App {
   padding:60px;
 }
+
+.five-cols {
+  flex: 20%;
+  max-width: 20%;
+}

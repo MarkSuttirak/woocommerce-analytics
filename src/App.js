@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Typography, Select, Space } from 'antd';
+import { Typography, Select, Space, Card, Button } from 'antd';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -75,6 +75,83 @@ function App() {
           ]} />
         </Space>
       </header>
+      <div className='mt-4'>
+          <div className='row'>
+            <div className='col-sm-6'>
+              <Title level={2}>Performance</Title>
+            </div>
+            <div className='col-sm-6 text-end'>
+              <Button>...</Button>
+            </div>
+          </div>
+          <div className='row'>
+            <div className='five-cols'>
+              <Card>
+                <Paragraph>Total sales</Paragraph>
+                <Title level={3} className="row">
+                    <div className='col-sm-6'>
+                      $0.00
+                    </div>
+                    <div className='col-sm-6 text-end'>
+                      0%
+                    </div>
+                </Title>
+              </Card>
+            </div>
+            <div className='five-cols'>
+              <Card>
+                <Paragraph>Net sales</Paragraph>
+                <Title level={3} className="row">
+                    <div className='col-sm-6'>
+                      $0.00
+                    </div>
+                    <div className='col-sm-6 text-end'>
+                      0%
+                    </div>
+                </Title>
+              </Card>
+            </div>
+            <div className='five-cols'>
+              <Card>
+                <Paragraph>Orders</Paragraph>
+                <Title level={3} className="row">
+                    <div className='col-sm-6'>
+                      0
+                    </div>
+                    <div className='col-sm-6 text-end'>
+                      0%
+                    </div>
+                </Title>
+              </Card>
+            </div>
+            <div className='five-cols'>
+              <Card>
+                <Paragraph>Products sold</Paragraph>
+                <Title level={3} className="row">
+                    <div className='col-sm-6'>
+                      0
+                    </div>
+                    <div className='col-sm-6 text-end'>
+                      0%
+                    </div>
+                </Title>
+              </Card>
+            </div>
+            <div className='five-cols'>
+              <Card>
+                <Paragraph>Variations Sold</Paragraph>
+                <Title level={3} className="row">
+                    <div className='col-sm-6'>
+                      0
+                    </div>
+                    <div className='col-sm-6 text-end'>
+                      0%
+                    </div>
+                </Title>
+              </Card>
+            </div>
+          </div>
+      </div>
     </div>
   );
 }
