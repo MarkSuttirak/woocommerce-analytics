@@ -197,46 +197,55 @@ const WaTotalSales = () => {
           title: 'Date',
           dataIndex: 'date',
           key: 'date',
+          sorter: true,
         },
         {
           title: 'Orders',
           dataIndex: 'orders',
           key: 'orders',
+          sorter: true,
         },
         {
           title: 'Gross sales',
           dataIndex: 'grossSales',
           key: 'grossSales',
+          sorter: true,
         },
         {
             title: 'Returns',
             dataIndex: 'returns',
             key: 'returns',
+            sorter: true,
           },
           {
             title: 'Coupons',
             dataIndex: 'coupons',
             key: 'coupons',
+            sorter: true,
           },
           {
             title: 'Net sales',
             dataIndex: 'netSales',
             key: 'netSales',
+            sorter: true,
           },
           {
             title: 'Taxes',
             dataIndex: 'taxes',
             key: 'taxes',
+            sorter: true,
           },
           {
             title: 'Shipping',
             dataIndex: 'shipping',
             key: 'shipping',
+            sorter: true,
           },
           {
             title: 'Total sales',
             dataIndex: 'totalSales',
             key: 'totalSales',
+            sorter: true,
           },
       ];
 
@@ -402,7 +411,7 @@ const WaTotalSales = () => {
             <Drawer title="Charts" placement="right" width="300px" open={revenueTableOptions} onClose={revenueTableCancel}>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultchecked onChange={setOrdersTable}/>
+                        <Switch defaultChecked onChange={setOrdersTable}/>
                     </div>
                     <div className='col-sm-9'>
                         <Paragraph>Orders</Paragraph>
@@ -410,7 +419,7 @@ const WaTotalSales = () => {
                 </div>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultchecked onChange={setGrossSalesTable}/>
+                        <Switch defaultChecked onChange={setGrossSalesTable}/>
                     </div>
                     <div className='col-sm-9'>
                         <Paragraph>Gross sales</Paragraph>
@@ -418,7 +427,7 @@ const WaTotalSales = () => {
                 </div>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultchecked onChange={setReturnsTable}/>
+                        <Switch defaultChecked onChange={setReturnsTable}/>
                     </div>
                     <div className='col-sm-9'>
                         <Paragraph>Returns</Paragraph>
