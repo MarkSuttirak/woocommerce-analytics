@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Additional npm packages
 
+Please install antd first before running localhost.
+
 npm install antd\
 npm install bootstrap@v5.2.3  -- bootstrap\
 npm install react-bootstrap bootstrap  -- bootstrap\
