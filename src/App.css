@@ -4,6 +4,16 @@
 
 a { text-decoration: none !important; }
 
+.performance .ant-card {
+  transition:all 200ms;
+}
+
+.performance .ant-card:hover {
+  color:#4096ff;
+  border-color:#4096ff;
+  transition:all 200ms;
+}
+
 .leaderboards .ant-card-body {
   padding:0 !important;
 }

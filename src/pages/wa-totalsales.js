@@ -270,7 +270,8 @@ const WaTotalSales = () => {
                         </Space>
                     </>
                 }>
-                    <DemoLine />
+                    { (lineChart && <DemoLine /> ) }
+                    { (barChart && <DemoColumn />)}
                 </Card>
             </div>
         </div>
