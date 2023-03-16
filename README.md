@@ -5,8 +5,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Additional npm packages
 
 npm install antd\
-npm install bootstrap@v5.2.3\  -- bootstrap
-npm install react-bootstrap bootstrap\  -- bootstrap
+npm install bootstrap@v5.2.3  -- bootstrap\
+npm install react-bootstrap bootstrap  -- bootstrap\
 npm i @fortawesome/fontawesome-free  -- font awesome
 
 NOTE: After you installed Bootstrap, please import bootstrap CSS file through each page by typing the text below.
