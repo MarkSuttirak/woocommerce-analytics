@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import '../App.css';
 import { Typography, Select, Space, Card, Button, DatePicker, Dropdown, Modal, Switch, Input, Table } from 'antd';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipse, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import { Line } from '@ant-design/plots';
 
-function App() {
+function WaDashboard() {
   const { RangePicker } = DatePicker;
   const { Title, Text, Paragraph } = Typography;
   const dateOptions = [
@@ -1029,4 +1028,4 @@ function App() {
   );
 }
 
-export default App;
+export default WaDashboard;

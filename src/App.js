@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Typography, Select, Space, Card, Button, DatePicker, Dropdown, Modal, Switch, Input, Table } from 'antd';
+import { Typography, Select, Space, Card, Button, DatePicker, Dropdown, Modal, Switch, Input, Table, Drawer } from 'antd';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipse, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import { Line } from '@ant-design/plots';
 
-function App() {
+function WaDashboard() {
   const { RangePicker } = DatePicker;
   const { Title, Text, Paragraph } = Typography;
   const dateOptions = [
@@ -755,7 +754,7 @@ function App() {
           </div>
       </div>
 
-      <Modal title="Display Stats:" mask={false} closable={false} width="300px" open={performanceOptions} onOk={PerformanceOk} onCancel={PerformanceCancel}>
+      <Drawer title="Display Stats:" placement="right" width="300px" open={performanceOptions} onClose={PerformanceCancel}>
         <div className='row'>
             <div className='col-sm-3'>
               <Switch defaultChecked onChange={setTotalSales}/>
@@ -882,9 +881,9 @@ function App() {
               <Input type="text" defaultValue="Performance" />
             </div>
         </div>
-      </Modal>
+      </Drawer>
 
-      <Modal title="Charts" mask={false} closable={false} width="300px" open={chartOptions} onOk={ChartOk} onCancel={ChartCancel}>
+      <Drawer title="Charts" placement="right" width="300px" open={chartOptions} onClose={ChartCancel}>
         <div className='row'>
             <div className='col-sm-3'>
               <Switch defaultChecked onChange={setTotalSalesChart}/>
@@ -989,9 +988,9 @@ function App() {
               <Paragraph>Downloads</Paragraph>
             </div>
         </div>
-      </Modal>
+      </Drawer>
 
-      <Modal title="Leaderboards" mask={false} closable={false} width="300px" open={LeaderOptions} onOk={LeaderOk} onCancel={LeaderCancel}>
+      <Drawer title="Leaderboards" placement="right" width="300px" open={LeaderOptions} onClose={LeaderCancel}>
         <div className='row'>
             <div className='col-sm-3'>
               <Switch defaultChecked onChange={setTopCustomers}/>
@@ -1024,9 +1023,9 @@ function App() {
               <Paragraph>Top products - Items sold</Paragraph>
             </div>
         </div>
-      </Modal>
+      </Drawer>
     </div>
   );
 }
 
-export default App;
+export default WaDashboard;
