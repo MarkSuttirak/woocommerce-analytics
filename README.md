@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Additional npm directories
+## Additional npm directories
 
 npm install antd\
 npm install bootstrap@v5.2.3
