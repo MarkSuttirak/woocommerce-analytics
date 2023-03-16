@@ -60,9 +60,6 @@ function WaDashboard() {
   const showPerformanceOptions = () => {
     setPerformanceOptions(true);
   };
-  const PerformanceOk = () => {
-    setPerformanceOptions(false);
-  };
   const PerformanceCancel = () => {
     setPerformanceOptions(false);
   };
@@ -71,9 +68,6 @@ function WaDashboard() {
   const showChartOptions = () => {
     setChartOptions(true);
   };
-  const ChartOk = () => {
-    setChartOptions(false);
-  };
   const ChartCancel = () => {
     setChartOptions(false);
   };
@@ -81,9 +75,6 @@ function WaDashboard() {
   const [LeaderOptions, setLeaderOptions] = useState(false);
   const showLeaderOptions = () => {
     setLeaderOptions(true);
-  };
-  const LeaderOk = () => {
-    setLeaderOptions(false);
   };
   const LeaderCancel = () => {
     setLeaderOptions(false);

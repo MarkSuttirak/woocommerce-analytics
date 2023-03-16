@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import '../App.css';
-import { Typography, Select, Space, Card, Button, DatePicker, Dropdown, Modal, Switch, Input, Table } from 'antd';
+import './App.css';
+import { Typography, Select, Space, Card, Button, DatePicker, Dropdown, Modal, Switch, Input, Table, Drawer } from 'antd';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipse, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
@@ -60,9 +60,6 @@ function WaDashboard() {
   const showPerformanceOptions = () => {
     setPerformanceOptions(true);
   };
-  const PerformanceOk = () => {
-    setPerformanceOptions(false);
-  };
   const PerformanceCancel = () => {
     setPerformanceOptions(false);
   };
@@ -71,9 +68,6 @@ function WaDashboard() {
   const showChartOptions = () => {
     setChartOptions(true);
   };
-  const ChartOk = () => {
-    setChartOptions(false);
-  };
   const ChartCancel = () => {
     setChartOptions(false);
   };
@@ -81,9 +75,6 @@ function WaDashboard() {
   const [LeaderOptions, setLeaderOptions] = useState(false);
   const showLeaderOptions = () => {
     setLeaderOptions(true);
-  };
-  const LeaderOk = () => {
-    setLeaderOptions(false);
   };
   const LeaderCancel = () => {
     setLeaderOptions(false);
@@ -754,7 +745,7 @@ function WaDashboard() {
           </div>
       </div>
 
-      <Modal title="Display Stats:" mask={false} closable={false} width="300px" open={performanceOptions} onOk={PerformanceOk} onCancel={PerformanceCancel}>
+      <Drawer title="Display Stats:" placement="right" width="300px" open={performanceOptions} onClose={PerformanceCancel}>
         <div className='row'>
             <div className='col-sm-3'>
               <Switch defaultChecked onChange={setTotalSales}/>
@@ -881,9 +872,9 @@ function WaDashboard() {
               <Input type="text" defaultValue="Performance" />
             </div>
         </div>
-      </Modal>
+      </Drawer>
 
-      <Modal title="Charts" mask={false} closable={false} width="300px" open={chartOptions} onOk={ChartOk} onCancel={ChartCancel}>
+      <Drawer title="Charts" placement="right" width="300px" open={chartOptions} onClose={ChartCancel}>
         <div className='row'>
             <div className='col-sm-3'>
               <Switch defaultChecked onChange={setTotalSalesChart}/>
@@ -988,9 +979,9 @@ function WaDashboard() {
               <Paragraph>Downloads</Paragraph>
             </div>
         </div>
-      </Modal>
+      </Drawer>
 
-      <Modal title="Leaderboards" mask={false} closable={false} width="300px" open={LeaderOptions} onOk={LeaderOk} onCancel={LeaderCancel}>
+      <Drawer title="Leaderboards" placement="right" width="300px" open={LeaderOptions} onClose={LeaderCancel}>
         <div className='row'>
             <div className='col-sm-3'>
               <Switch defaultChecked onChange={setTopCustomers}/>
@@ -1023,7 +1014,7 @@ function WaDashboard() {
               <Paragraph>Top products - Items sold</Paragraph>
             </div>
         </div>
-      </Modal>
+      </Drawer>
     </div>
   );
 }
