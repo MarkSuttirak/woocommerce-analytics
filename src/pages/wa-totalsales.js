@@ -257,7 +257,7 @@ const WaTotalSales = () => {
             </div>
             </header>
 
-            <div className='mt-4'>
+            <div className='mt-4 performance'>
                 <div className='row'>
                     <div className='col-sm-3'>
                         <Card>
@@ -339,7 +339,7 @@ const WaTotalSales = () => {
                         </Card>
                     </div>
                     <div className='col-sm-3'>
-                        <Card>
+                        <Card className='active'>
                             <Paragraph>Total sales</Paragraph>
                             <Title level={3} className="row">
                                 <div className='col-sm-6'>
@@ -400,7 +400,7 @@ const WaTotalSales = () => {
             <Drawer title="Charts" placement="right" width="300px" open={revenueTableOptions} onClose={revenueTableCancel}>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch onChange={setOrdersTable}/>
+                        <Switch defaultchecked onChange={setOrdersTable}/>
                     </div>
                     <div className='col-sm-9'>
                         <Paragraph>Orders</Paragraph>
@@ -408,10 +408,18 @@ const WaTotalSales = () => {
                 </div>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch onChange={setGrossSalesTable}/>
+                        <Switch defaultchecked onChange={setGrossSalesTable}/>
                     </div>
                     <div className='col-sm-9'>
                         <Paragraph>Gross sales</Paragraph>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-sm-3'>
+                        <Switch defaultchecked onChange={setReturnsTable}/>
+                    </div>
+                    <div className='col-sm-9'>
+                        <Paragraph>Returns</Paragraph>
                     </div>
                 </div>
             </Drawer>
