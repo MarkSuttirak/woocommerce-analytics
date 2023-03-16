@@ -235,33 +235,33 @@ function WaDashboard() {
   const [orders, setOrders] = useState(true);
   const [productsSold, setProductsSold] = useState(true);
   const [variationsSold, setVariationsSold] = useState(true);
-  const [averageOrderValue, setAverageOrderValue] = useState(true);
-  const [returns, setReturns] = useState(true);
-  const [discountedOrders, setDiscountedOrders] = useState(true);
-  const [netDiscount, setNetDiscount] = useState(true);
-  const [totalTax, setTotalTax] = useState(true);
-  const [orderTax, setOrderTax] = useState(true);
-  const [shippingTax, setShippingTax] = useState(true);
-  const [shipping, setShipping] = useState(true);
-  const [grossSales, setGrossSales] = useState(true);
-  const [downloads, setDownloads] = useState(true);
+  const [averageOrderValue, setAverageOrderValue] = useState(false);
+  const [returns, setReturns] = useState(false);
+  const [discountedOrders, setDiscountedOrders] = useState(false);
+  const [netDiscount, setNetDiscount] = useState(false);
+  const [totalTax, setTotalTax] = useState(false);
+  const [orderTax, setOrderTax] = useState(false);
+  const [shippingTax, setShippingTax] = useState(false);
+  const [shipping, setShipping] = useState(false);
+  const [grossSales, setGrossSales] = useState(false);
+  const [downloads, setDownloads] = useState(false);
 
-  const [totalSalesChart, setTotalSalesChart] = useState(true);
+  const [totalSalesChart, setTotalSalesChart] = useState(false);
   const [netSalesChart, setNetSalesChart] = useState(true);
   const [ordersChart, setOrdersChart] = useState(true);
-  const [averageOrdersChart, setAverageOrdersChart] = useState(true);
-  const [itemsSoldChart, setItemsSoldChart] = useState(true);
-  const [returnsChart, setReturnsChart] = useState(true);
-  const [discountedOrdersChart, setDiscountedOrdersChart] = useState(true);
-  const [grossDiscountedChart, setGrossDiscountedChart] = useState(true);
-  const [totalTaxChart, setTotalTaxChart] = useState(true);
-  const [orderTaxChart, setOrderTaxChart] = useState(true);
-  const [shippingTaxChart, setShippingTaxChart] = useState(true);
-  const [shippingChart, setShippingChart] = useState(true);
-  const [downloadsChart, setDownloadsChart] = useState(true);
+  const [averageOrdersChart, setAverageOrdersChart] = useState(false);
+  const [itemsSoldChart, setItemsSoldChart] = useState(false);
+  const [returnsChart, setReturnsChart] = useState(false);
+  const [discountedOrdersChart, setDiscountedOrdersChart] = useState(false);
+  const [grossDiscountedChart, setGrossDiscountedChart] = useState(false);
+  const [totalTaxChart, setTotalTaxChart] = useState(false);
+  const [orderTaxChart, setOrderTaxChart] = useState(false);
+  const [shippingTaxChart, setShippingTaxChart] = useState(false);
+  const [shippingChart, setShippingChart] = useState(false);
+  const [downloadsChart, setDownloadsChart] = useState(false);
 
-  const [topCustomers, setTopCustomers] = useState(true);
-  const [topCoupons, setTopCoupons] = useState(true);
+  const [topCustomers, setTopCustomers] = useState(false);
+  const [topCoupons, setTopCoupons] = useState(false);
   const [topCategories, setTopCategories] = useState(true);
   const [topProducts, setTopProducts] = useState(true);
 
@@ -780,7 +780,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setReturns}/>
+              <Switch onChange={setReturns}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Returns</Paragraph>
@@ -788,7 +788,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setDiscountedOrders}/>
+              <Switch onChange={setDiscountedOrders}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Discounted orders</Paragraph>
@@ -796,7 +796,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setNetDiscount}/>
+              <Switch onChange={setNetDiscount}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Net discount amount</Paragraph>
@@ -804,7 +804,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setTotalTax}/>
+              <Switch onChange={setTotalTax}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Total tax</Paragraph>
@@ -812,7 +812,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setOrderTax}/>
+              <Switch onChange={setOrderTax}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Order tax</Paragraph>
@@ -820,7 +820,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setShippingTax}/>
+              <Switch onChange={setShippingTax}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Shipping tax</Paragraph>
@@ -828,7 +828,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setShipping}/>
+              <Switch onChange={setShipping}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Shipping</Paragraph>
@@ -836,7 +836,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setDownloads}/>
+              <Switch onChange={setDownloads}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Downloads</Paragraph>
@@ -844,7 +844,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setGrossSales}/>
+              <Switch onChange={setGrossSales}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Gross sales</Paragraph>
@@ -860,7 +860,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setAverageOrderValue}/>
+              <Switch onChange={setAverageOrderValue}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Average Order Value</Paragraph>
@@ -877,7 +877,7 @@ function WaDashboard() {
       <Drawer title="Charts" placement="right" width="300px" open={chartOptions} onClose={ChartCancel}>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setTotalSalesChart}/>
+              <Switch onChange={setTotalSalesChart}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Total sales</Paragraph>
@@ -901,7 +901,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setAverageOrdersChart}/>
+              <Switch onChange={setAverageOrdersChart}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Average order value</Paragraph>
@@ -909,7 +909,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setItemsSoldChart}/>
+              <Switch onChange={setItemsSoldChart}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Items sold</Paragraph>
@@ -917,7 +917,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setReturnsChart}/>
+              <Switch onChange={setReturnsChart}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Returns</Paragraph>
@@ -925,7 +925,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setDiscountedOrdersChart}/>
+              <Switch onChange={setDiscountedOrdersChart}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Discounted orders</Paragraph>
@@ -933,7 +933,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setGrossDiscountedChart}/>
+              <Switch onChange={setGrossDiscountedChart}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Gross discounted</Paragraph>
@@ -941,7 +941,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setTotalTaxChart}/>
+              <Switch onChange={setTotalTaxChart}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Total tax</Paragraph>
@@ -949,7 +949,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setOrderTaxChart}/>
+              <Switch onChange={setOrderTaxChart}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Order tax</Paragraph>
@@ -957,7 +957,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setShippingTaxChart}/>
+              <Switch onChange={setShippingTaxChart}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Shipping tax</Paragraph>
@@ -965,7 +965,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setShippingChart}/>
+              <Switch onChange={setShippingChart}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Shipping</Paragraph>
@@ -973,7 +973,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setDownloadsChart}/>
+              <Switch onChange={setDownloadsChart}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Downloads</Paragraph>
@@ -984,7 +984,7 @@ function WaDashboard() {
       <Drawer title="Leaderboards" placement="right" width="300px" open={LeaderOptions} onClose={LeaderCancel}>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setTopCustomers}/>
+              <Switch onChange={setTopCustomers}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Top Customers - Total Spend</Paragraph>
@@ -992,7 +992,7 @@ function WaDashboard() {
         </div>
         <div className='row'>
             <div className='col-sm-3'>
-              <Switch defaultChecked onChange={setTopCoupons}/>
+              <Switch onChange={setTopCoupons}/>
             </div>
             <div className='col-sm-9'>
               <Paragraph>Top Coupons - Number of Orders</Paragraph>
