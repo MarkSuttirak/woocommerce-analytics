@@ -640,6 +640,13 @@ function WaDashboard() {
             <Title level={2}>Charts</Title>
           </div>
           <div className='col-sm-6 text-end'>
+            <Select 
+                defaultValue="byday"
+                options={[
+                    {value: 'byday', label: 'By day'},
+                    {value: 'byweek', label: 'By week'},
+                ]}
+            />
             <Space>
                 <Button type="ghost" onClick={showLineChart}>
                     <FontAwesomeIcon icon={faChartLine}/>
