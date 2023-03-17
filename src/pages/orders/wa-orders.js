@@ -118,14 +118,13 @@ const WaOrders = () => {
     const { Title, Text, Paragraph } = Typography;
     const { RangePicker } = DatePicker;
 
-    const [ordersTable, setOrdersTable] = useState(true);
     const [grossSalesTable, setGrossSalesTable] = useState(true);
-    const [returnsTable, setReturnsTable] = useState(true);
+    const [statusTable, setStatusTable] = useState(true);
+    const [customerTable, setCustomerTable] = useState(true);
+    const [customerTypeTable, setCustomerTypeTable] = useState(true);
+    const [productsTable, setProductsTable] = useState(true);
+    const [itemsSoldTable, setItemsSoldTable] = useState(true);
     const [couponsTable, setCouponsTable] = useState(true);
-    const [netSalesTable, setNetSalesTable] = useState(true);
-    const [taxesTable, setTaxesTable] = useState(true);
-    const [shippingTable, setShippingTable] = useState(true);
-    const [totalSalesTable, setTotalSalesTable] = useState(true);
 
     const [revenueTableOptions, setRevenueTableOptions] = useState(false);
     const showRevenueTableOptions = () => {
@@ -207,25 +206,45 @@ const WaOrders = () => {
           sorter: true,
         },
         {
-          title: 'Orders',
-          dataIndex: 'orders',
-          key: 'orders',
+          title: 'Order #',
+          dataIndex: 'order',
+          key: 'order',
           sorter: true,
-          className: (!ordersTable && 'hidden'),
         },
         {
-          title: 'Gross sales',
-          dataIndex: 'grossSales',
-          key: 'grossSales',
+          title: 'Status',
+          dataIndex: 'status',
+          key: 'status',
           sorter: true,
-          className: (!grossSalesTable && 'hidden'),
+          className: (!statusTable && 'hidden'),
         },
         {
-            title: 'Returns',
-            dataIndex: 'returns',
-            key: 'returns',
+            title: 'Customer',
+            dataIndex: 'customer',
+            key: 'customer',
             sorter: true,
-            className: (!returnsTable && 'hidden'),
+            className: (!customerTable && 'hidden'),
+          },
+          {
+            title: 'Customer type',
+            dataIndex: 'customerType',
+            key: 'customerType',
+            sorter: true,
+            className: (!customerTypeTable && 'hidden'),
+          },
+          {
+            title: 'Product(s)',
+            dataIndex: 'products',
+            key: 'products',
+            sorter: true,
+            className: (!productsTable && 'hidden'),
+          },
+          {
+            title: 'Items sold',
+            dataIndex: 'itemsSold',
+            key: 'itemsSold',
+            sorter: true,
+            className: (!itemsSoldTable && 'hidden'),
           },
           {
             title: 'Coupons',
@@ -239,29 +258,7 @@ const WaOrders = () => {
             dataIndex: 'netSales',
             key: 'netSales',
             sorter: true,
-            className: (!netSalesTable && 'hidden'),
-          },
-          {
-            title: 'Taxes',
-            dataIndex: 'taxes',
-            key: 'taxes',
-            sorter: true,
-            className: (!taxesTable && 'hidden'),
-          },
-          {
-            title: 'Shipping',
-            dataIndex: 'shipping',
-            key: 'shipping',
-            sorter: true,
-            className: (!shippingTable && 'hidden'),
-          },
-          {
-            title: 'Total sales',
-            dataIndex: 'totalSales',
-            key: 'totalSales',
-            sorter: true,
-            className: (!totalSalesTable && 'hidden'),
-          },   
+          }, 
       ];
 
     return (
@@ -402,26 +399,42 @@ const WaOrders = () => {
             <Drawer title="Charts" placement="right" width="300px" open={revenueTableOptions} onClose={revenueTableCancel}>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setOrdersTable}/>
+                        <Switch defaultChecked onChange={setStatusTable}/>
                     </div>
                     <div className='col-sm-9'>
-                        <Paragraph>Orders</Paragraph>
+                        <Paragraph>Status</Paragraph>
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setGrossSalesTable}/>
+                        <Switch defaultChecked onChange={setCustomerTable}/>
                     </div>
                     <div className='col-sm-9'>
-                        <Paragraph>Gross sales</Paragraph>
+                        <Paragraph>Customer</Paragraph>
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setReturnsTable}/>
+                        <Switch defaultChecked onChange={setCustomerTypeTable}/>
                     </div>
                     <div className='col-sm-9'>
-                        <Paragraph>Returns</Paragraph>
+                        <Paragraph>Customer type</Paragraph>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-sm-3'>
+                        <Switch defaultChecked onChange={setProductsTable}/>
+                    </div>
+                    <div className='col-sm-9'>
+                        <Paragraph>Product(s)</Paragraph>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-sm-3'>
+                        <Switch defaultChecked onChange={setItemsSoldTable}/>
+                    </div>
+                    <div className='col-sm-9'>
+                        <Paragraph>Items sold</Paragraph>
                     </div>
                 </div>
                 <div className='row'>
@@ -429,39 +442,7 @@ const WaOrders = () => {
                         <Switch defaultChecked onChange={setCouponsTable}/>
                     </div>
                     <div className='col-sm-9'>
-                        <Paragraph>Coupons</Paragraph>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setNetSalesTable}/>
-                    </div>
-                    <div className='col-sm-9'>
-                        <Paragraph>Net sales</Paragraph>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setTaxesTable}/>
-                    </div>
-                    <div className='col-sm-9'>
-                        <Paragraph>Taxes</Paragraph>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setShippingTable}/>
-                    </div>
-                    <div className='col-sm-9'>
-                        <Paragraph>Shipping</Paragraph>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setTotalSalesTable}/>
-                    </div>
-                    <div className='col-sm-9'>
-                        <Paragraph>Total sales</Paragraph>
+                        <Paragraph>Coupon(s)</Paragraph>
                     </div>
                 </div>
             </Drawer>
