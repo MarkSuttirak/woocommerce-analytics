@@ -118,10 +118,10 @@ const WaDownloads = () => {
     const { Title, Text, Paragraph } = Typography;
     const { RangePicker } = DatePicker;
 
-    const [skuTable, setSkuTable] = useState(true);
+    const [fileTable, setFileTable] = useState(true);
     const [ordersTable, setOrdersTable] = useState(true);
-    const [statusTable, setStatusTable] = useState(true);
-    const [stockTable, setStockTable] = useState(true);
+    const [usernameTable, setUsernameTable] = useState(true);
+    const [ipTable, setIpTable] = useState(true);
 
     const [revenueTableOptions, setRevenueTableOptions] = useState(false);
     const showRevenueTableOptions = () => {
@@ -183,51 +183,45 @@ const WaDownloads = () => {
     
       const revenueColumns = [
         {
-          title: 'Product / Variation title',
-          dataIndex: 'productOrVariationTitle',
-          key: 'productOrVariationTitle',
+          title: 'Date',
+          dataIndex: 'date',
+          key: 'date',
           sorter: true,
         },
         {
-          title: 'SKU',
-          dataIndex: 'sku',
-          key: 'sku',
-          sorter: true,
-          className: (!skuTable && 'hidden'),
-        },
-        {
-          title: 'Items sold',
-          dataIndex: 'itemsSold',
-          key: 'itemsSold',
+          title: 'Product title',
+          dataIndex: 'productTitle',
+          key: 'productTitle',
           sorter: true,
         },
         {
-            title: 'Net sales',
-            dataIndex: 'netSales',
-            key: 'netSales',
-            sorter: true,
-          },
-          {
-            title: 'Orders',
-            dataIndex: 'orders',
-            key: 'orders',
+          title: 'File name',
+          dataIndex: 'fileName',
+          key: 'fileName',
+          sorter: true,
+          className: (!fileTable && 'hidden'),
+        },
+        {
+            title: 'Order #',
+            dataIndex: 'order',
+            key: 'order',
             sorter: true,
             className: (!ordersTable && 'hidden'),
           },
           {
-            title: 'Status',
-            dataIndex: 'status',
-            key: 'status',
+            title: 'Username',
+            dataIndex: 'username',
+            key: 'username',
             sorter: true,
-            className: (!statusTable && 'hidden'),
+            className: (!usernameTable && 'hidden'),
           },
           {
-            title: 'Stock',
-            dataIndex: 'stock',
-            key: 'stock',
+            title: 'IP',
+            dataIndex: 'ip',
+            key: 'ip',
             sorter: true,
-            className: (!stockTable && 'hidden'),
-          }, 
+            className: (!ipTable && 'hidden'),
+          },
       ];
 
       const onSelectChange = (newSelectedRowKeys) => {
@@ -311,16 +305,11 @@ const WaDownloads = () => {
 
             <div className='mt-4 revenue-table card-with-table'>
                 <Card title={
-                    <Title level={5} style={{margin:0}}>Variations</Title>
+                    <Title level={5} style={{margin:0}}>Downloads</Title>
                 } extra={
-                    <Space>
-                        <Button>
-                            Compare
-                        </Button>
-                        <Button type="ghost" onClick={showRevenueTableOptions}>
-                            <FontAwesomeIcon icon={faEllipsisVertical}/>
-                        </Button>
-                    </Space>
+                    <Button type="ghost" onClick={showRevenueTableOptions}>
+                        <FontAwesomeIcon icon={faEllipsisVertical}/>
+                    </Button>
                 }>
                     <Table rowSelection={rowSelection} columns={revenueColumns} dataSource={revenueData}/>
                     <div style={{display:"flex",gap:"16px",justifyContent:"center",marginBottom:"20px"}}>
@@ -335,10 +324,10 @@ const WaDownloads = () => {
             <Drawer title="Charts" placement="right" width="300px" open={revenueTableOptions} onClose={revenueTableCancel}>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setSkuTable}/>
+                        <Switch defaultChecked onChange={setFileTable}/>
                     </div>
                     <div className='col-sm-9'>
-                        <Paragraph>SKU</Paragraph>
+                        <Paragraph>File name</Paragraph>
                     </div>
                 </div>
                 <div className='row'>
@@ -346,23 +335,23 @@ const WaDownloads = () => {
                         <Switch defaultChecked onChange={setOrdersTable}/>
                     </div>
                     <div className='col-sm-9'>
-                        <Paragraph>Orders</Paragraph>
+                        <Paragraph>Order #</Paragraph>
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setStatusTable}/>
+                        <Switch defaultChecked onChange={setUsernameTable}/>
                     </div>
                     <div className='col-sm-9'>
-                        <Paragraph>Status</Paragraph>
+                        <Paragraph>Username</Paragraph>
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setStockTable}/>
+                        <Switch defaultChecked onChange={setIpTable}/>
                     </div>
                     <div className='col-sm-9'>
-                        <Paragraph>Stock</Paragraph>
+                        <Paragraph>IP</Paragraph>
                     </div>
                 </div>
             </Drawer>
