@@ -490,17 +490,19 @@ function WaDashboard() {
             {
               (netDiscount) && (
                   <div className='col-2 my-2'>
-                  <Card>
-                    <Paragraph>Net discount amount</Paragraph>
-                    <Title level={3} className="row">
-                        <div className='col-sm-6'>
-                          $0.00
-                        </div>
-                        <div className='col-sm-6 text-end'>
-                          0%
-                        </div>
-                    </Title>
-                  </Card>
+                  <Link to="/coupons/amount">
+                    <Card>
+                      <Paragraph>Net discount amount</Paragraph>
+                      <Title level={3} className="row">
+                          <div className='col-sm-6'>
+                            $0.00
+                          </div>
+                          <div className='col-sm-6 text-end'>
+                            0%
+                          </div>
+                      </Title>
+                    </Card>
+                  </Link>
                 </div>
               )
             }

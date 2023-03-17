@@ -10,6 +10,8 @@ import WaNetSales from "./pages/revenue/wa-netsales";
 import WaOrders from "./pages/orders/wa-orders";
 
 import WaItemsSold from "./pages/products/wa-itemssold";
+import WaProductNetSales from "./pages/products/wa-productnetsales";
+import WaProductOrders from "./pages/products/wa-productorders";
 
 import WaVariationsSold from "./pages/variations/wa-variationsold";
 
@@ -18,6 +20,7 @@ import WaDownloads from "./pages/downloads/wa-downloads";
 import WaTotalTax from "./pages/taxes/wa-totaltax";
 
 import WaDiscounted from "./pages/coupons/wa-discounted";
+import WaAmount from "./pages/coupons/wa-amount";
 
 const App = () => {
   return (
@@ -35,6 +38,8 @@ const App = () => {
 
         {/* Products Pages */}
         <Route path="/products/items-sold" element={<WaItemsSold />} />
+        <Route path="/products/net-sales" element={<WaProductNetSales />} />
+        <Route path="/products/orders" element={<WaProductOrders />} />
 
         {/* Variations Pages */}
         <Route path="/variations/variations-sold" element={<WaVariationsSold />} />
@@ -47,6 +52,7 @@ const App = () => {
 
         {/* Coupon Pages */}
         <Route path="/coupons/discounted-orders" element={<WaDiscounted />} />
+        <Route path="/coupons/amount" element={<WaAmount />} />
       </Routes>
     </Router>
   );

@@ -6,11 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipse, faEllipsisVertical, faChartSimple, faChartLine, faCloudArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { Line, Column } from '@ant-design/plots';
 import { Link } from 'react-router-dom';
-import VariationsGraph from '../../components/graphs/variations-graph';
-import VariationsTable from '../../components/tables/variations-table';
+import CouponsGraph from '../../components/graphs/coupons-graph';
+import CouponsTable from '../../components/tables/coupons-table';
 
-const WaVariationsSold = () => {
-
+const WaAmount = () => {
     const { Title, Text, Paragraph } = Typography;
     const { RangePicker } = DatePicker;
 
@@ -33,11 +32,10 @@ const WaVariationsSold = () => {
         { value: 'previous year', label: 'Previous year' }
       ];
 
-      const showVariationsOptions = [
-        { value: 'all variations', label: 'All variations' },
-        { value: 'single variation', label: 'Single variation' },
-        { value: 'comparison', label: 'Comparison' },
-        { value: 'advanced filters', label: 'Advanced filters' }
+      const showCouponsOptions = [
+        { value: 'all coupons', label: 'All coupons' },
+        { value: 'single coupon', label: 'Single coupon' },
+        { value: 'comparison', label: 'Comparison' }
       ];
 
       
@@ -58,28 +56,30 @@ const WaVariationsSold = () => {
             </div>
             <div className='d-inline-block ms-2'>
                 <Paragraph>Show:</Paragraph>
-                <Select defaultValue="all variations" placeholder="Compare to" style={{width: 300}} options={showVariationsOptions} />
+                <Select defaultValue="all coupons" placeholder="Compare to" style={{width: 300}} options={showCouponsOptions} />
             </div>
             </header>
 
             <div className='mt-4 performance'>
                 <div className='row'>
                     <div className='col-sm'>
-                    <Card className='active'>
-                        <Paragraph>Items sold</Paragraph>
-                        <Title level={3} className="row">
-                            <div className='col-sm-6'>
-                            0
-                            </div>
-                            <div className='col-sm-6 text-end'>
-                            0%
-                            </div>
-                        </Title>
-                    </Card>
+                    <Link to="/coupons/discounted-orders">
+                        <Card>
+                            <Paragraph>Discounted orders</Paragraph>
+                            <Title level={3} className="row">
+                                <div className='col-sm-6'>
+                                0
+                                </div>
+                                <div className='col-sm-6 text-end'>
+                                0%
+                                </div>
+                            </Title>
+                        </Card>
+                    </Link>
                     </div>
                     <div className='col-sm'>
-                        <Card>
-                            <Paragraph>Net sales</Paragraph>
+                        <Card className='active'>
+                            <Paragraph>Amount</Paragraph>
                             <Title level={3} className="row">
                                 <div className='col-sm-6'>
                                 $0.00
@@ -90,28 +90,14 @@ const WaVariationsSold = () => {
                             </Title>
                         </Card>
                     </div>
-                    <div className='col-sm'>
-                        <Card>
-                            <Paragraph>Orders</Paragraph>
-                            <Title level={3} className="row">
-                                <div className='col-sm-6'>
-                                0
-                                </div>
-                                <div className='col-sm-6 text-end'>
-                                0%
-                                </div>
-                            </Title>
-                        </Card>
-                    </div>
                 </div>
             </div>
 
-            <VariationsGraph title="Items sold" link="https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json" />
-            
-            <VariationsTable />
-            
+            <CouponsGraph title='Amount' link='https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json' />
+
+            <CouponsTable />
         </div>
     )
 }
 
-export default WaVariationsSold;
+export default WaAmount;

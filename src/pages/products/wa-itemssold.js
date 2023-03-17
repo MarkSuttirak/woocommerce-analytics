@@ -77,30 +77,34 @@ const WaItemsSold = () => {
                     </Card>
                     </div>
                     <div className='col-sm-4'>
-                        <Card>
-                            <Paragraph>Net sales</Paragraph>
-                            <Title level={3} className="row">
-                                <div className='col-sm-6'>
-                                $0.00
-                                </div>
-                                <div className='col-sm-6 text-end'>
-                                0%
-                                </div>
-                            </Title>
-                        </Card>
+                        <Link to="/products/net-sales">
+                            <Card>
+                                <Paragraph>Net sales</Paragraph>
+                                <Title level={3} className="row">
+                                    <div className='col-sm-6'>
+                                    $0.00
+                                    </div>
+                                    <div className='col-sm-6 text-end'>
+                                    0%
+                                    </div>
+                                </Title>
+                            </Card>
+                        </Link>
                     </div>
                     <div className='col-sm-4'>
-                        <Card>
-                            <Paragraph>Orders</Paragraph>
-                            <Title level={3} className="row">
-                                <div className='col-sm-6'>
-                                0
-                                </div>
-                                <div className='col-sm-6 text-end'>
-                                0%
-                                </div>
-                            </Title>
-                        </Card>
+                        <Link to="/products/orders">
+                            <Card>
+                                <Paragraph>Orders</Paragraph>
+                                <Title level={3} className="row">
+                                    <div className='col-sm-6'>
+                                    0
+                                    </div>
+                                    <div className='col-sm-6 text-end'>
+                                    0%
+                                    </div>
+                                </Title>
+                            </Card>
+                        </Link>
                     </div>
                 </div>
             </div>
