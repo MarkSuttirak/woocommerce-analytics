@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
-import { Typography, Select, Space, Card, Button, DatePicker, Dropdown, Modal, Switch, Input, Table, Drawer } from 'antd';
+import { Typography, Select, Space, Card, Button, DatePicker, Dropdown, Modal, Switch, Input, Table, Drawer, Checkbox } from 'antd';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipse, faEllipsisVertical, faChartSimple, faChartLine, faCloudArrowDown } from '@fortawesome/free-solid-svg-icons';
@@ -264,11 +264,11 @@ const WaTotalSales = () => {
             <header className="App-header">
             <div className='d-inline-block'>
                 <Paragraph>Date range:</Paragraph>
-                <Select placeholder="Select a date range" style={{width: 300}} options={dateOptions} />
+                <Select defaultValue="today" placeholder="Select a date range" style={{width: 300}} options={dateOptions} />
             </div>
             <div className='d-inline-block ms-2'>
                 <Paragraph>Compare to:</Paragraph>
-                <Select placeholder="Compare to" style={{width: 300}} options={comparisonOptions} />
+                <Select defaultValue="previous year" placeholder="Compare to" style={{width: 300}} options={comparisonOptions} />
             </div>
             <div className='d-inline-block ms-2'>
                 <Paragraph>Custom date range:</Paragraph>
@@ -376,7 +376,13 @@ const WaTotalSales = () => {
             </div>
 
             <div className='mt-4 total-sales-table'>
-                <Card title="Total sales" extra={
+                <Card title={
+                  <Space>
+                    <Title level={5} style={{margin:0}}>Total sales</Title>
+                    <Checkbox>Today</Checkbox>
+                    <Checkbox>Previous year</Checkbox>
+                  </Space>
+                } extra={
                     <>
                         <Select 
                             defaultValue="byday"
