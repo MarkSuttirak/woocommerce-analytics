@@ -153,6 +153,11 @@ const WaOrders = () => {
         { value: 'previous year', label: 'Previous year' }
       ];
 
+      const showOrdersOptions = [
+        { value: 'all orders', label: 'All orders' },
+        { value: 'advanced filters', label: 'Advanced filters' }
+      ];
+
       const revenueData = [
         {
           key: '1',
@@ -274,53 +279,29 @@ const WaOrders = () => {
                 <Paragraph>Custom date range:</Paragraph>
                 <RangePicker />
             </div>
+            <div className='d-inline-block ms-2'>
+                <Paragraph>Show:</Paragraph>
+                <Select defaultValue="all orders" placeholder="Compare to" style={{width: 300}} options={showOrdersOptions} />
+            </div>
             </header>
 
             <div className='mt-4 performance'>
                 <div className='row'>
                     <div className='col-sm-3'>
-                    <Link to="/gross-sales">
-                    <Card>
-                        <Paragraph>Gross sales</Paragraph>
+                    <Card className='active'>
+                        <Paragraph>Orders</Paragraph>
                         <Title level={3} className="row">
                             <div className='col-sm-6'>
-                            $0.00
+                            0
                             </div>
                             <div className='col-sm-6 text-end'>
                             0%
                             </div>
                         </Title>
                     </Card>
-                    </Link>
                     </div>
                     <div className='col-sm-3'>
                         <Card>
-                            <Paragraph>Returns</Paragraph>
-                            <Title level={3} className="row">
-                                <div className='col-sm-6'>
-                                $0.00
-                                </div>
-                                <div className='col-sm-6 text-end'>
-                                0%
-                                </div>
-                            </Title>
-                        </Card>
-                    </div>
-                    <div className='col-sm-3'>
-                        <Card>
-                            <Paragraph>Coupons</Paragraph>
-                            <Title level={3} className="row">
-                                <div className='col-sm-6'>
-                                $0.00
-                                </div>
-                                <div className='col-sm-6 text-end'>
-                                0%
-                                </div>
-                            </Title>
-                        </Card>
-                    </div>
-                    <div className='col-sm-3'>
-                        <Card className='active'>
                             <Paragraph>Net sales</Paragraph>
                             <Title level={3} className="row">
                                 <div className='col-sm-6'>
@@ -332,10 +313,9 @@ const WaOrders = () => {
                             </Title>
                         </Card>
                     </div>
-                    <div class="w-100 d-none d-md-block my-2"></div>
                     <div className='col-sm-3'>
                         <Card>
-                            <Paragraph>Taxes</Paragraph>
+                            <Paragraph>Average order value</Paragraph>
                             <Title level={3} className="row">
                                 <div className='col-sm-6'>
                                 $0.00
@@ -348,31 +328,16 @@ const WaOrders = () => {
                     </div>
                     <div className='col-sm-3'>
                         <Card>
-                            <Paragraph>Shipping</Paragraph>
+                            <Paragraph>Average items per order</Paragraph>
                             <Title level={3} className="row">
                                 <div className='col-sm-6'>
-                                $0.00
+                                0
                                 </div>
                                 <div className='col-sm-6 text-end'>
                                 0%
                                 </div>
                             </Title>
                         </Card>
-                    </div>
-                    <div className='col-sm-3'>
-                        <Link to="/total-sales">
-                            <Card>
-                                <Paragraph>Total sales</Paragraph>
-                                <Title level={3} className="row">
-                                    <div className='col-sm-6'>
-                                    $0.00
-                                    </div>
-                                    <div className='col-sm-6 text-end'>
-                                    0%
-                                    </div>
-                                </Title>
-                            </Card>
-                        </Link>
                     </div>
                 </div>
             </div>
@@ -380,17 +345,17 @@ const WaOrders = () => {
             <div className='mt-4 total-sales-table'>
                 <Card title={
                   <Space>
-                    <Title level={5} style={{margin:0}}>Net sales</Title>
+                    <Title level={5} style={{margin:0}}>Orders</Title>
                     <Checkbox>Today</Checkbox>
                     <Checkbox>Previous year</Checkbox>
                   </Space>
                 } extra={
                     <>
                         <Select 
-                            defaultValue="byday"
+                            defaultValue="byhour"
                             options={[
+                                {value: 'byhour', label: 'By hour'},
                                 {value: 'byday', label: 'By day'},
-                                {value: 'byweek', label: 'By week'},
                             ]}
                         />
                         <Space>
@@ -409,7 +374,7 @@ const WaOrders = () => {
             </div>
 
             <div className='mt-4 revenue-table card-with-table'>
-                <Card title="Revenue" extra={
+                <Card title="Orders" extra={
                     <Space>
                         <Button type='ghost'>
                             <Space>
@@ -423,16 +388,13 @@ const WaOrders = () => {
                     </Space>
                 }>
                     <Table columns={revenueColumns} dataSource={revenueData}/>
-                    <div style={{display:"flex",gap:"12px",justifyContent:"center",marginBottom:"20px"}}>
-                        <Text><strong>1</strong> day</Text>
-                        <Text><strong>0</strong> orders</Text>
-                        <Text><strong>$0.00</strong> Gross sales</Text>
-                        <Text><strong>$0.00</strong> Returns</Text>
-                        <Text><strong>$0.00</strong> Coupons</Text>
-                        <Text><strong>$0.00</strong> Net sales</Text>
-                        <Text><strong>$0.00</strong> Taxes</Text>
-                        <Text><strong>$0.00</strong> Shipping</Text>
-                        <Text><strong>$0.00</strong> Total sales</Text>
+                    <div style={{display:"flex",gap:"16px",justifyContent:"center",marginBottom:"20px"}}>
+                        <Text><strong>0</strong> Orders</Text>
+                        <Text><strong>0</strong> Customers</Text>
+                        <Text><strong>0</strong> Products</Text>
+                        <Text><strong>0</strong> Items sold</Text>
+                        <Text><strong>0</strong> Coupons</Text>
+                        <Text><strong>$0.00</strong> net sales</Text>
                     </div>
                 </Card>
             </div>
