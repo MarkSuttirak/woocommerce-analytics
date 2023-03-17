@@ -9,6 +9,7 @@ import WaNetSales from "./pages/revenue/wa-netsales";
 import WaReturns from "./pages/revenue/wa-returns";
 
 import WaOrders from "./pages/orders/wa-orders";
+import WaOrderNetSales from "./pages/orders/wa-ordersnetsales";
 
 import WaItemsSold from "./pages/products/wa-itemssold";
 import WaProductNetSales from "./pages/products/wa-productnetsales";
@@ -37,6 +38,7 @@ const App = () => {
 
         {/* Orders Pages */}
         <Route path="/orders" element={<WaOrders />} />
+        <Route path="/orders/net-sales" element={<WaOrderNetSales />} />
 
         {/* Products Pages */}
         <Route path="/products/items-sold" element={<WaItemsSold />} />

@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import OrdersGraph from '../../components/graphs/orders-graph';
 import OrdersTable from '../../components/tables/orders-table';
 
-const WaOrders = () => {
+const WaOrderNetSales = () => {
 
     const { Title, Text, Paragraph } = Typography;
     const { RangePicker } = DatePicker;
@@ -62,32 +62,32 @@ const WaOrders = () => {
             <div className='mt-4 performance'>
                 <div className='row'>
                     <div className='col-sm-3'>
-                    <Card className='active'>
-                        <Paragraph>Orders</Paragraph>
-                        <Title level={3} className="row">
-                            <div className='col-sm-6'>
-                            0
-                            </div>
-                            <div className='col-sm-6 text-end'>
-                            0%
-                            </div>
-                        </Title>
-                    </Card>
+                    <Link to="/orders">
+                        <Card>
+                            <Paragraph>Orders</Paragraph>
+                            <Title level={3} className="row">
+                                <div className='col-sm-6'>
+                                0
+                                </div>
+                                <div className='col-sm-6 text-end'>
+                                0%
+                                </div>
+                            </Title>
+                        </Card>
+                    </Link>
                     </div>
                     <div className='col-sm-3'>
-                        <Link to="/orders/net-sales">
-                            <Card>
-                                <Paragraph>Net sales</Paragraph>
-                                <Title level={3} className="row">
-                                    <div className='col-sm-6'>
-                                    $0.00
-                                    </div>
-                                    <div className='col-sm-6 text-end'>
-                                    0%
-                                    </div>
-                                </Title>
-                            </Card>
-                        </Link>
+                        <Card className='active'>
+                            <Paragraph>Net sales</Paragraph>
+                            <Title level={3} className="row">
+                                <div className='col-sm-6'>
+                                $0.00
+                                </div>
+                                <div className='col-sm-6 text-end'>
+                                0%
+                                </div>
+                            </Title>
+                        </Card>
                     </div>
                     <div className='col-sm-3'>
                         <Card>
@@ -118,7 +118,7 @@ const WaOrders = () => {
                 </div>
             </div>
 
-            <OrdersGraph title="Orders" link="https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json" />
+            <OrdersGraph title="Net sales" link="https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json" />
 
             <OrdersTable />
             
@@ -126,4 +126,4 @@ const WaOrders = () => {
     )
 }
 
-export default WaOrders;
+export default WaOrderNetSales;
