@@ -433,6 +433,7 @@ function WaDashboard() {
             {
               (productsSold) && (
                 <div className='col-sm'>
+                  <Link to="/products/items-sold">
                   <Card>
                     <Paragraph>Products sold</Paragraph>
                     <Title level={3} className="row">
@@ -444,6 +445,7 @@ function WaDashboard() {
                         </div>
                     </Title>
                   </Card>
+                  </Link>
                 </div>
               )
             }

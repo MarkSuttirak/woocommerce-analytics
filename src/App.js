@@ -9,6 +9,8 @@ import WaNetSales from "./pages/revenue/wa-netsales";
 
 import WaOrders from "./pages/orders/wa-orders";
 
+import WaItemsSold from "./pages/products/wa-itemssold";
+
 const App = () => {
   return (
     <Router>
@@ -22,6 +24,9 @@ const App = () => {
 
         {/* Orders Pages */}
         <Route path="/orders" element={<WaOrders />} />
+
+        {/* Products Pages */}
+        <Route path="/products/items-sold" element={<WaItemsSold />} />
       </Routes>
     </Router>
   );

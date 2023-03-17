@@ -170,30 +170,6 @@ const WaOrders = () => {
           shipping: '$0.00',
           totalSales: '$0.00',
         },
-        {
-            key: '2',
-            date: 'March 2, 2023',
-            orders: 0,
-            grossSales: '$0.00',
-            returns: '$0.00',
-            coupons: '$0.00',
-            netSales: '$0.00',
-            taxes: '$0.00',
-            shipping: '$0.00',
-            totalSales: '$0.00',
-          },
-          {
-            key: '3',
-            date: 'March 3, 2023',
-            orders: 0,
-            grossSales: '$0.00',
-            returns: '$0.00',
-            coupons: '$0.00',
-            netSales: '$0.00',
-            taxes: '$0.00',
-            shipping: '$0.00',
-            totalSales: '$0.00',
-          },
       ];
       
       
