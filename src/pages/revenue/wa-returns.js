@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import RevenueTable from '../../components/tables/revenue-table';
 import RevenueGraph from '../../components/graphs/revenue-graph';
 
-const WaNetSales = () => {
+const WaReturns = () => {
 
     const { Title, Text, Paragraph } = Typography;
     const { RangePicker } = DatePicker;
@@ -70,19 +70,17 @@ const WaNetSales = () => {
                     </Link>
                     </div>
                     <div className='col-sm-3'>
-                        <Link to="/revenue/returns">
-                            <Card>
-                                <Paragraph>Returns</Paragraph>
-                                <Title level={3} className="row">
-                                    <div className='col-sm-6'>
-                                    $0.00
-                                    </div>
-                                    <div className='col-sm-6 text-end'>
-                                    0%
-                                    </div>
-                                </Title>
-                            </Card>
-                        </Link>
+                        <Card className='active'>
+                            <Paragraph>Returns</Paragraph>
+                            <Title level={3} className="row">
+                                <div className='col-sm-6'>
+                                $0.00
+                                </div>
+                                <div className='col-sm-6 text-end'>
+                                0%
+                                </div>
+                            </Title>
+                        </Card>
                     </div>
                     <div className='col-sm-3'>
                         <Card>
@@ -98,17 +96,19 @@ const WaNetSales = () => {
                         </Card>
                     </div>
                     <div className='col-sm-3'>
-                        <Card className='active'>
-                            <Paragraph>Net sales</Paragraph>
-                            <Title level={3} className="row">
-                                <div className='col-sm-6'>
-                                $0.00
-                                </div>
-                                <div className='col-sm-6 text-end'>
-                                0%
-                                </div>
-                            </Title>
-                        </Card>
+                        <Link to="/revenue/net-sales">
+                            <Card>
+                                <Paragraph>Net sales</Paragraph>
+                                <Title level={3} className="row">
+                                    <div className='col-sm-6'>
+                                    $0.00
+                                    </div>
+                                    <div className='col-sm-6 text-end'>
+                                    0%
+                                    </div>
+                                </Title>
+                            </Card>
+                        </Link>
                     </div>
                     <div class="w-100 d-none d-md-block my-2"></div>
                     <div className='col-sm-3'>
@@ -155,11 +155,11 @@ const WaNetSales = () => {
                 </div>
             </div>
 
-            <RevenueGraph title="Net sales" link="https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json" />
+            <RevenueGraph title="Returns" link="https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json" />
 
             <RevenueTable />
         </div>
     )
 }
 
-export default WaNetSales;
+export default WaReturns;

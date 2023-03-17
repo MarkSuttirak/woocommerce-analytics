@@ -67,17 +67,19 @@ const WaTotalSales = () => {
                     </Link>
                     </div>
                     <div className='col-sm-3'>
-                        <Card>
-                            <Paragraph>Returns</Paragraph>
-                            <Title level={3} className="row">
-                                <div className='col-sm-6'>
-                                $0.00
-                                </div>
-                                <div className='col-sm-6 text-end'>
-                                0%
-                                </div>
-                            </Title>
-                        </Card>
+                        <Link to="/revenue/returns">
+                            <Card>
+                                <Paragraph>Returns</Paragraph>
+                                <Title level={3} className="row">
+                                    <div className='col-sm-6'>
+                                    $0.00
+                                    </div>
+                                    <div className='col-sm-6 text-end'>
+                                    0%
+                                    </div>
+                                </Title>
+                            </Card>
+                        </Link>
                     </div>
                     <div className='col-sm-3'>
                         <Card>
