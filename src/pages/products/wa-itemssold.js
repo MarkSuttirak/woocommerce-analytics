@@ -271,7 +271,7 @@ const WaItemsSold = () => {
 
             <div className='mt-4 performance'>
                 <div className='row'>
-                    <div className='col-sm'>
+                    <div className='col-sm-4'>
                     <Card className='active'>
                         <Paragraph>Items sold</Paragraph>
                         <Title level={3} className="row">
@@ -284,7 +284,7 @@ const WaItemsSold = () => {
                         </Title>
                     </Card>
                     </div>
-                    <div className='col-sm'>
+                    <div className='col-sm-4'>
                         <Card>
                             <Paragraph>Net sales</Paragraph>
                             <Title level={3} className="row">
@@ -297,7 +297,7 @@ const WaItemsSold = () => {
                             </Title>
                         </Card>
                     </div>
-                    <div className='col-sm'>
+                    <div className='col-sm-4'>
                         <Card>
                             <Paragraph>Orders</Paragraph>
                             <Title level={3} className="row">
