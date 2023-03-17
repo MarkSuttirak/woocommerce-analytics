@@ -471,17 +471,19 @@ function WaDashboard() {
             {
               (discountedOrders) && (
                   <div className='col-2 my-2'>
-                  <Card>
-                    <Paragraph>Discounted orders</Paragraph>
-                    <Title level={3} className="row">
-                        <div className='col-sm-6'>
-                          0
-                        </div>
-                        <div className='col-sm-6 text-end'>
-                          0%
-                        </div>
-                    </Title>
-                  </Card>
+                  <Link to="/coupons/discounted-orders">
+                    <Card>
+                      <Paragraph>Discounted orders</Paragraph>
+                      <Title level={3} className="row">
+                          <div className='col-sm-6'>
+                            0
+                          </div>
+                          <div className='col-sm-6 text-end'>
+                            0%
+                          </div>
+                      </Title>
+                    </Card>
+                  </Link>
                 </div>
               )
             }

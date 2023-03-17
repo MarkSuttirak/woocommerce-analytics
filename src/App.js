@@ -17,6 +17,8 @@ import WaDownloads from "./pages/downloads/wa-downloads";
 
 import WaTotalTax from "./pages/taxes/wa-totaltax";
 
+import WaDiscounted from "./pages/coupons/wa-discounted";
+
 const App = () => {
   return (
     <Router>
@@ -42,6 +44,9 @@ const App = () => {
 
         {/* Taxes Pages */}
         <Route path="/taxes/total-tax" element={<WaTotalTax />} />
+
+        {/* Coupon Pages */}
+        <Route path="/coupons/discounted-orders" element={<WaDiscounted />} />
       </Routes>
     </Router>
   );
