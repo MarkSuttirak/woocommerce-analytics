@@ -318,7 +318,7 @@ const WaGrossSales = () => {
                         </Card>
                     </div>
                     <div className='col-sm-3'>
-                        <Link to="/net-sales">
+                        <Link to="/revenue/net-sales">
                           <Card>
                               <Paragraph>Net sales</Paragraph>
                               <Title level={3} className="row">
@@ -360,7 +360,7 @@ const WaGrossSales = () => {
                         </Card>
                     </div>
                     <div className='col-sm-3'>
-                        <Link to="/total-sales">
+                        <Link to="/revenue/total-sales">
                             <Card>
                                 <Paragraph>Total sales</Paragraph>
                                 <Title level={3} className="row">

@@ -16,9 +16,9 @@ const App = () => {
         <Route path="/" element={<WaDashboard />} />
 
         {/* Revenue Pages */}
-        <Route path="/total-sales" element={<WaTotalSales />} />
-        <Route path="/gross-sales" element={<WaGrossSales />} />
-        <Route path="/net-sales" element={<WaNetSales />} />
+        <Route path="/revenue/total-sales" element={<WaTotalSales />} />
+        <Route path="/revenue/gross-sales" element={<WaGrossSales />} />
+        <Route path="/revenue/net-sales" element={<WaNetSales />} />
 
         {/* Orders Pages */}
         <Route path="/orders" element={<WaOrders />} />

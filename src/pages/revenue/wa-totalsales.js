@@ -279,7 +279,7 @@ const WaTotalSales = () => {
             <div className='mt-4 performance'>
                 <div className='row'>
                     <div className='col-sm-3'>
-                    <Link to="/gross-sales">
+                    <Link to="/revenue/gross-sales">
                         <Card>
                             <Paragraph>Gross sales</Paragraph>
                             <Title level={3} className="row">
@@ -320,7 +320,7 @@ const WaTotalSales = () => {
                         </Card>
                     </div>
                     <div className='col-sm-3'>
-                        <Link to="/net-sales">
+                        <Link to="/revenue/net-sales">
                           <Card>
                               <Paragraph>Net sales</Paragraph>
                               <Title level={3} className="row">

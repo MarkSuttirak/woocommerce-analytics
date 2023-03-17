@@ -376,7 +376,7 @@ function WaDashboard() {
             {
               (totalSales) && (
                   <div className='col-sm'>
-                  <Link to="/total-sales">
+                  <Link to="/revenue/total-sales">
                     <Card>
                         <Paragraph>Total sales</Paragraph>
                         <Title level={3} className="row">
@@ -395,7 +395,7 @@ function WaDashboard() {
             {
               (netSales) && (
               <div className='col-sm'>
-                <Link to="/net-sales">
+                <Link to="/revenue/net-sales">
                     <Card>
                     <Paragraph>Net sales</Paragraph>
                     <Title level={3} className="row">
@@ -450,7 +450,7 @@ function WaDashboard() {
             {
               (returns) && (
                   <div className='col-sm'>
-                <Link to="/total-sales">
+                <Link to="/revenue/total-sales">
                   <Card>
                     <Paragraph>Returns</Paragraph>
                     <Title level={3} className="row">
@@ -554,7 +554,7 @@ function WaDashboard() {
             {
               (shipping) && (
                   <div className='col-sm'>
-                    <Link to="/total-sales">
+                    <Link to="/revenue/total-sales">
                   <Card>
                     <Paragraph>Shipping</Paragraph>
                     <Title level={3} className="row">
@@ -590,7 +590,7 @@ function WaDashboard() {
             {
               (grossSales) && (
                   <div className='col-sm'>
-                <Link to="/gross-sales">
+                <Link to="/revenue/gross-sales">
                   <Card>
                     <Paragraph>Gross sales</Paragraph>
                     <Title level={3} className="row">
