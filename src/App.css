@@ -1,5 +1,5 @@
 .App {
-  padding:60px;
+  padding:100px 60px;
 }
 
 a { text-decoration: none !important; }
@@ -31,5 +31,5 @@ a { text-decoration: none !important; }
 }
 
 .chart-table .ant-card-body {
-  padding:120px 24px;
+  padding:80px 24px;
 }

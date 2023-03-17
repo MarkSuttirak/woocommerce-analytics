@@ -315,7 +315,7 @@ const WaOrders = () => {
                 </div>
             </div>
 
-            <div className='mt-4 total-sales-table'>
+            <div className='mt-4 chart-table'>
                 <Card title={
                   <Space>
                     <Title level={5} style={{margin:0}}>Orders</Title>
