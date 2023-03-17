@@ -243,7 +243,7 @@ const WaItemsSold = () => {
             </div>
             <div className='d-inline-block ms-2'>
                 <Paragraph>Show:</Paragraph>
-                <Select defaultValue="all products" placeholder="Compare to" style={{width: 300}} options={showCouponsOptions} />
+                <Select defaultValue="all coupons" placeholder="Compare to" style={{width: 300}} options={showCouponsOptions} />
             </div>
             </header>
 
