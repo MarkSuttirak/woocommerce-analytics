@@ -118,12 +118,10 @@ const WaItemsSold = () => {
     const { Title, Text, Paragraph } = Typography;
     const { RangePicker } = DatePicker;
 
-    const [skuTable, setSkuTable] = useState(true);
-    const [ordersTable, setOrdersTable] = useState(true);
-    const [categoryTable, setCategoryTable] = useState(true);
-    const [variationsTable, setVariationsTable] = useState(true);
-    const [statusTable, setStatusTable] = useState(true);
-    const [stockTable, setStockTable] = useState(true);
+    const [amountDiscountedTable, setAmountDiscountedTable] = useState(true);
+    const [createdTable, setCreatedTable] = useState(true);
+    const [expiresTable, setExpiresTable] = useState(true);
+    const [typeTable, setTypeTable] = useState(true);
 
     const [productTableOptions, setProductTableOptions] = useState(false);
     const showProductTableOptions = () => {
@@ -151,9 +149,9 @@ const WaItemsSold = () => {
         { value: 'previous year', label: 'Previous year' }
       ];
 
-      const showProductsOptions = [
-        { value: 'all products', label: 'All products' },
-        { value: 'single product', label: 'Single product' },
+      const showCouponsOptions = [
+        { value: 'all coupons', label: 'All coupons' },
+        { value: 'single coupon', label: 'Single coupon' },
         { value: 'comparison', label: 'Comparison' }
       ];
 
@@ -178,65 +176,45 @@ const WaItemsSold = () => {
     
       const productColumns = [
         {
-          title: 'Product title',
-          dataIndex: 'productTitle',
-          key: 'productTitle',
+          title: 'Coupon code',
+          dataIndex: 'couponCode',
+          key: 'couponCode',
           sorter: true,
         },
         {
-          title: 'SKU',
-          dataIndex: 'sku',
-          key: 'sku',
+          title: 'Orders',
+          dataIndex: 'orders',
+          key: 'orders',
           sorter: true,
-          className: (!skuTable && 'hidden'),
         },
         {
-          title: 'Items sold',
-          dataIndex: 'itemsSold',
+          title: 'Amount discounted',
+          dataIndex: 'amountDiscounted',
           key: 'itemsSold',
           sorter: true,
+          className: (!amountDiscountedTable && 'hidden'),
         },
         {
-            title: 'Net sales',
-            dataIndex: 'netSales',
-            key: 'netSales',
+            title: 'Created',
+            dataIndex: 'created',
+            key: 'created',
             sorter: true,
+            className: (!createdTable && 'hidden'),
           },
           {
-            title: 'Orders',
-            dataIndex: 'orders',
-            key: 'orders',
+            title: 'Expires',
+            dataIndex: 'expires',
+            key: 'expires',
             sorter: true,
-            className: (!ordersTable && 'hidden'),
+            className: (!expiresTable && 'hidden'),
           },
           {
-            title: 'Category',
-            dataIndex: 'category',
-            key: 'category',
+            title: 'Type',
+            dataIndex: 'type',
+            key: 'type',
             sorter: true,
-            className: (!categoryTable && 'hidden'),
+            className: (!typeTable && 'hidden'),
           },
-          {
-            title: 'Variations',
-            dataIndex: 'variations',
-            key: 'variations',
-            sorter: true,
-            className: (!variationsTable && 'hidden'),
-          },
-          {
-            title: 'Status',
-            dataIndex: 'status',
-            key: 'status',
-            sorter: true,
-            className: (!statusTable && 'hidden'),
-          },
-          {
-            title: 'Stock',
-            dataIndex: 'stock',
-            key: 'stock',
-            sorter: true,
-            className: (!stockTable && 'hidden'),
-          }, 
       ];
 
       const onSelectChange = (newSelectedRowKeys) => {
@@ -265,7 +243,7 @@ const WaItemsSold = () => {
             </div>
             <div className='d-inline-block ms-2'>
                 <Paragraph>Show:</Paragraph>
-                <Select defaultValue="all products" placeholder="Compare to" style={{width: 300}} options={showProductsOptions} />
+                <Select defaultValue="all products" placeholder="Compare to" style={{width: 300}} options={showCouponsOptions} />
             </div>
             </header>
 
@@ -339,24 +317,15 @@ const WaItemsSold = () => {
                         <Input type="text" style={{width:"calc(100% + 40vw)"}} />
                     </Space>
                 } extra={
-                    <Space>
-                        <Button type='ghost'>
-                            <Space>
-                            <FontAwesomeIcon icon={faCloudArrowDown} />
-                            Download
-                            </Space>
-                        </Button>
-                        <Button type="ghost" onClick={showProductTableOptions}>
-                            <FontAwesomeIcon icon={faEllipsisVertical}/>
-                        </Button>
-                    </Space>
+                    <Button type="ghost" onClick={showProductTableOptions}>
+                        <FontAwesomeIcon icon={faEllipsisVertical}/>
+                    </Button>
                 }>
                     <Table rowSelection={rowSelection} columns={productColumns} dataSource={productData} />
                     <div style={{display:"flex",gap:"16px",justifyContent:"center",marginBottom:"20px"}}>
-                        <Text><strong>0</strong> Products</Text>
-                        <Text><strong>0</strong> Items sold</Text>
-                        <Text><strong>$0.00</strong> Net sales</Text>
+                        <Text><strong>0</strong> Coupons</Text>
                         <Text><strong>0</strong> Orders</Text>
+                        <Text><strong>$0.00</strong> Amount discounted</Text>
                     </div>
                 </Card>
             </div>
@@ -364,50 +333,34 @@ const WaItemsSold = () => {
             <Drawer title="Charts" placement="right" width="300px" open={productTableOptions} onClose={productTableCancel}>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setSkuTable}/>
+                        <Switch defaultChecked onChange={setAmountDiscountedTable}/>
                     </div>
                     <div className='col-sm-9'>
-                        <Paragraph>SKU</Paragraph>
+                        <Paragraph>Amount discounted</Paragraph>
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setOrdersTable}/>
+                        <Switch defaultChecked onChange={setCreatedTable}/>
                     </div>
                     <div className='col-sm-9'>
-                        <Paragraph>Orders</Paragraph>
+                        <Paragraph>Created</Paragraph>
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setCategoryTable}/>
+                        <Switch defaultChecked onChange={setExpiresTable}/>
                     </div>
                     <div className='col-sm-9'>
-                        <Paragraph>Category</Paragraph>
+                        <Paragraph>Expires</Paragraph>
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setVariationsTable}/>
+                        <Switch defaultChecked onChange={setTypeTable}/>
                     </div>
                     <div className='col-sm-9'>
-                        <Paragraph>Variations</Paragraph>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setStatusTable}/>
-                    </div>
-                    <div className='col-sm-9'>
-                        <Paragraph>Status</Paragraph>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setStockTable}/>
-                    </div>
-                    <div className='col-sm-9'>
-                        <Paragraph>Stock</Paragraph>
+                        <Paragraph>Type</Paragraph>
                     </div>
                 </div>
             </Drawer>
