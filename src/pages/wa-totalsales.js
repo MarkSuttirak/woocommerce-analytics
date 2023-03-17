@@ -421,6 +421,17 @@ const WaTotalSales = () => {
                     </Space>
                 }>
                     <Table columns={revenueColumns} dataSource={revenueData}/>
+                    <div style={{display:"flex",gap:"12px",justifyContent:"center",marginBottom:"20px"}}>
+                        <Text><strong>1</strong> day</Text>
+                        <Text><strong>0</strong> orders</Text>
+                        <Text><strong>$0.00</strong> Gross sales</Text>
+                        <Text><strong>$0.00</strong> Returns</Text>
+                        <Text><strong>$0.00</strong> Coupons</Text>
+                        <Text><strong>$0.00</strong> Net sales</Text>
+                        <Text><strong>$0.00</strong> Taxes</Text>
+                        <Text><strong>$0.00</strong> Shipping</Text>
+                        <Text><strong>$0.00</strong> Total sales</Text>
+                    </div>
                 </Card>
             </div>
 
