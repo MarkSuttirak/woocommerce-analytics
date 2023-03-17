@@ -7,7 +7,7 @@ import { faEllipse, faEllipsisVertical, faChartSimple, faChartLine, faCloudArrow
 import { Line, Column } from '@ant-design/plots';
 import { Link } from 'react-router-dom';
 
-const WaItemsSold = () => {
+const WaVariationsSold = () => {
     const DemoLine = () => {
         const [data, setData] = useState([]);
       
@@ -120,8 +120,6 @@ const WaItemsSold = () => {
 
     const [skuTable, setSkuTable] = useState(true);
     const [ordersTable, setOrdersTable] = useState(true);
-    const [categoryTable, setCategoryTable] = useState(true);
-    const [variationsTable, setVariationsTable] = useState(true);
     const [statusTable, setStatusTable] = useState(true);
     const [stockTable, setStockTable] = useState(true);
 
@@ -151,10 +149,11 @@ const WaItemsSold = () => {
         { value: 'previous year', label: 'Previous year' }
       ];
 
-      const showProductsOptions = [
-        { value: 'all products', label: 'All products' },
-        { value: 'single product', label: 'Single product' },
-        { value: 'comparison', label: 'Comparison' }
+      const showVariationsOptions = [
+        { value: 'all variations', label: 'All variations' },
+        { value: 'single variation', label: 'Single variation' },
+        { value: 'comparison', label: 'Comparison' },
+        { value: 'advanced filters', label: 'Advanced filters' }
       ];
 
       const [selectedRowKeys, setSelectedRowKeys] = useState([]);
@@ -162,25 +161,33 @@ const WaItemsSold = () => {
       const revenueData = [
         {
           key: '1',
-          productTitle: 'teststserf',
-          sku: 'testst',
-          itemsSold: 2,
-          netSales: "$0.00",
-          orders:1,
-          category:"Uncategorized",
-          variations: 2,
-          status:"In stock",
-          stock: 2,
+          productOrVariationTitle: 'testsets',
+          sku: 'TES1000',
+          itemsSold: 1,
+          netSales: '$0.00',
+          orders: 0,
+          status: 'In stock',
+          stock: 800
         },
+        {
+            key: '2',
+            productOrVariationTitle: 'testggdgffddgfsets',
+            sku: 'TES1001',
+            itemsSold: 3,
+            netSales: '$0.00',
+            orders: 0,
+            status: 'In stock',
+            stock: 400
+          },
       ];
       
       
     
       const revenueColumns = [
         {
-          title: 'Product title',
-          dataIndex: 'productTitle',
-          key: 'productTitle',
+          title: 'Product / Variation title',
+          dataIndex: 'productOrVariationTitle',
+          key: 'productOrVariationTitle',
           sorter: true,
         },
         {
@@ -208,20 +215,6 @@ const WaItemsSold = () => {
             key: 'orders',
             sorter: true,
             className: (!ordersTable && 'hidden'),
-          },
-          {
-            title: 'Category',
-            dataIndex: 'category',
-            key: 'category',
-            sorter: true,
-            className: (!categoryTable && 'hidden'),
-          },
-          {
-            title: 'Variations',
-            dataIndex: 'variations',
-            key: 'variations',
-            sorter: true,
-            className: (!variationsTable && 'hidden'),
           },
           {
             title: 'Status',
@@ -265,7 +258,7 @@ const WaItemsSold = () => {
             </div>
             <div className='d-inline-block ms-2'>
                 <Paragraph>Show:</Paragraph>
-                <Select defaultValue="all products" placeholder="Compare to" style={{width: 300}} options={showProductsOptions} />
+                <Select defaultValue="all variations" placeholder="Compare to" style={{width: 300}} options={showVariationsOptions} />
             </div>
             </header>
 
@@ -346,18 +339,11 @@ const WaItemsSold = () => {
 
             <div className='mt-4 revenue-table card-with-table'>
                 <Card title={
-                    <Space>
-                        <Title level={5} style={{margin:0}}>Products</Title>
-                        <Paragraph style={{margin:0}}>Compare</Paragraph>
-                        <Input type="text" style={{width:"calc(100% + 40vw)"}} />
-                    </Space>
+                    <Title level={5} style={{margin:0}}>Variations</Title>
                 } extra={
                     <Space>
-                        <Button type='ghost'>
-                            <Space>
-                            <FontAwesomeIcon icon={faCloudArrowDown} />
-                            Download
-                            </Space>
+                        <Button>
+                            Compare
                         </Button>
                         <Button type="ghost" onClick={showRevenueTableOptions}>
                             <FontAwesomeIcon icon={faEllipsisVertical}/>
@@ -366,8 +352,8 @@ const WaItemsSold = () => {
                 }>
                     <Table rowSelection={rowSelection} columns={revenueColumns} dataSource={revenueData}/>
                     <div style={{display:"flex",gap:"16px",justifyContent:"center",marginBottom:"20px"}}>
-                        <Text><strong>0</strong> Products</Text>
-                        <Text><strong>0</strong> Items sold</Text>
+                        <Text><strong>0</strong> vairations sold</Text>
+                        <Text><strong>0</strong> items sold</Text>
                         <Text><strong>$0.00</strong> Net sales</Text>
                         <Text><strong>0</strong> Orders</Text>
                     </div>
@@ -393,22 +379,6 @@ const WaItemsSold = () => {
                 </div>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setCategoryTable}/>
-                    </div>
-                    <div className='col-sm-9'>
-                        <Paragraph>Category</Paragraph>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setVariationsTable}/>
-                    </div>
-                    <div className='col-sm-9'>
-                        <Paragraph>Variations</Paragraph>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-sm-3'>
                         <Switch defaultChecked onChange={setStatusTable}/>
                     </div>
                     <div className='col-sm-9'>
@@ -428,4 +398,4 @@ const WaItemsSold = () => {
     )
 }
 
-export default WaItemsSold;
+export default WaVariationsSold;

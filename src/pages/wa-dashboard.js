@@ -611,17 +611,19 @@ function WaDashboard() {
             {
               (variationsSold) && (
                   <div className='col-sm'>
-                  <Card>
-                    <Paragraph>Variations Sold</Paragraph>
-                    <Title level={3} className="row">
-                        <div className='col-sm-6'>
-                          0
-                        </div>
-                        <div className='col-sm-6 text-end'>
-                          0%
-                        </div>
-                    </Title>
-                  </Card>
+                  <Link to="/variations/variations-sold">
+                    <Card>
+                      <Paragraph>Variations Sold</Paragraph>
+                      <Title level={3} className="row">
+                          <div className='col-sm-6'>
+                            0
+                          </div>
+                          <div className='col-sm-6 text-end'>
+                            0%
+                          </div>
+                      </Title>
+                    </Card>
+                  </Link>
                 </div>
               )
             }

@@ -11,6 +11,8 @@ import WaOrders from "./pages/orders/wa-orders";
 
 import WaItemsSold from "./pages/products/wa-itemssold";
 
+import WaVariationsSold from "./pages/variations/wa-variationsold";
+
 const App = () => {
   return (
     <Router>
@@ -27,6 +29,9 @@ const App = () => {
 
         {/* Products Pages */}
         <Route path="/products/items-sold" element={<WaItemsSold />} />
+
+        {/* Variations Pages */}
+        <Route path="/variations/variations-sold" element={<WaVariationsSold />} />
       </Routes>
     </Router>
   );
