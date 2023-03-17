@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import RevenueTable from '../../components/tables/revenue-table';
 import RevenueGraph from '../../components/graphs/revenue-graph';
 
-const WaGrossSales = () => {
+const WaRevenueCoupons = () => {
 
     const { Title, Text, Paragraph } = Typography;
     const { RangePicker } = DatePicker;
@@ -32,45 +32,6 @@ const WaGrossSales = () => {
         { value: 'previous year', label: 'Previous year' }
       ];
 
-      const revenueData = [
-        {
-          key: '1',
-          date: 'March 1, 2023',
-          orders: 0,
-          grossSales: '$0.00',
-          returns: '$0.00',
-          coupons: '$0.00',
-          netSales: '$0.00',
-          taxes: '$0.00',
-          shipping: '$0.00',
-          totalSales: '$0.00',
-        },
-        {
-            key: '2',
-            date: 'March 2, 2023',
-            orders: 0,
-            grossSales: '$0.00',
-            returns: '$0.00',
-            coupons: '$0.00',
-            netSales: '$0.00',
-            taxes: '$0.00',
-            shipping: '$0.00',
-            totalSales: '$0.00',
-          },
-          {
-            key: '3',
-            date: 'March 3, 2023',
-            orders: 0,
-            grossSales: '$0.00',
-            returns: '$0.00',
-            coupons: '$0.00',
-            netSales: '$0.00',
-            taxes: '$0.00',
-            shipping: '$0.00',
-            totalSales: '$0.00',
-          },
-      ];
-      
     return (
         <div className="App">
             <header className="App-header">
@@ -91,17 +52,19 @@ const WaGrossSales = () => {
             <div className='mt-4 performance'>
                 <div className='row'>
                     <div className='col-sm-3'>
-                    <Card className='active'>
-                        <Paragraph>Gross sales</Paragraph>
-                        <Title level={3} className="row">
-                            <div className='col-sm-6'>
-                            $0.00
-                            </div>
-                            <div className='col-sm-6 text-end'>
-                            0%
-                            </div>
-                        </Title>
-                    </Card>
+                    <Link to="/revenue/gross-sales">
+                        <Card>
+                            <Paragraph>Gross sales</Paragraph>
+                            <Title level={3} className="row">
+                                <div className='col-sm-6'>
+                                $0.00
+                                </div>
+                                <div className='col-sm-6 text-end'>
+                                0%
+                                </div>
+                            </Title>
+                        </Card>
+                    </Link>
                     </div>
                     <div className='col-sm-3'>
                         <Link to="/revenue/returns">
@@ -119,19 +82,17 @@ const WaGrossSales = () => {
                         </Link>
                     </div>
                     <div className='col-sm-3'>
-                        <Link to="/revenue/coupons">
-                            <Card>
-                                <Paragraph>Coupons</Paragraph>
-                                <Title level={3} className="row">
-                                    <div className='col-sm-6'>
-                                    $0.00
-                                    </div>
-                                    <div className='col-sm-6 text-end'>
-                                    0%
-                                    </div>
-                                </Title>
-                            </Card>
-                        </Link>
+                        <Card className='active'>
+                            <Paragraph>Coupons</Paragraph>
+                            <Title level={3} className="row">
+                                <div className='col-sm-6'>
+                                $0.00
+                                </div>
+                                <div className='col-sm-6 text-end'>
+                                0%
+                                </div>
+                            </Title>
+                        </Card>
                     </div>
                     <div className='col-sm-3'>
                         <Link to="/revenue/net-sales">
@@ -197,11 +158,13 @@ const WaGrossSales = () => {
                 </div>
             </div>
 
-            <RevenueGraph title="Gross sales" link="https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json" />
+            <RevenueGraph title="Coupons" link="https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json" />
+
             <RevenueTable />
 
+            
         </div>
     )
 }
 
-export default WaGrossSales;
+export default WaRevenueCoupons;

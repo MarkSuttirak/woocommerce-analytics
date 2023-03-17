@@ -82,17 +82,19 @@ const WaTotalSales = () => {
                         </Link>
                     </div>
                     <div className='col-sm-3'>
-                        <Card>
-                            <Paragraph>Coupons</Paragraph>
-                            <Title level={3} className="row">
-                                <div className='col-sm-6'>
-                                $0.00
-                                </div>
-                                <div className='col-sm-6 text-end'>
-                                0%
-                                </div>
-                            </Title>
-                        </Card>
+                        <Link to="/revenue/coupons">
+                            <Card>
+                                <Paragraph>Coupons</Paragraph>
+                                <Title level={3} className="row">
+                                    <div className='col-sm-6'>
+                                    $0.00
+                                    </div>
+                                    <div className='col-sm-6 text-end'>
+                                    0%
+                                    </div>
+                                </Title>
+                            </Card>
+                        </Link>
                     </div>
                     <div className='col-sm-3'>
                         <Link to="/revenue/net-sales">
@@ -111,30 +113,34 @@ const WaTotalSales = () => {
                     </div>
                     <div class="w-100 d-none d-md-block my-2"></div>
                     <div className='col-sm-3'>
-                        <Card>
-                            <Paragraph>Taxes</Paragraph>
-                            <Title level={3} className="row">
-                                <div className='col-sm-6'>
-                                $0.00
-                                </div>
-                                <div className='col-sm-6 text-end'>
-                                0%
-                                </div>
-                            </Title>
-                        </Card>
+                        <Link to="/revenue/taxes">
+                            <Card>
+                                <Paragraph>Taxes</Paragraph>
+                                <Title level={3} className="row">
+                                    <div className='col-sm-6'>
+                                    $0.00
+                                    </div>
+                                    <div className='col-sm-6 text-end'>
+                                    0%
+                                    </div>
+                                </Title>
+                            </Card>
+                        </Link>
                     </div>
                     <div className='col-sm-3'>
-                        <Card>
-                            <Paragraph>Shipping</Paragraph>
-                            <Title level={3} className="row">
-                                <div className='col-sm-6'>
-                                $0.00
-                                </div>
-                                <div className='col-sm-6 text-end'>
-                                0%
-                                </div>
-                            </Title>
-                        </Card>
+                        <Link to="/revenue/shipping">
+                            <Card>
+                                <Paragraph>Shipping</Paragraph>
+                                <Title level={3} className="row">
+                                    <div className='col-sm-6'>
+                                    $0.00
+                                    </div>
+                                    <div className='col-sm-6 text-end'>
+                                    0%
+                                    </div>
+                                </Title>
+                            </Card>
+                        </Link>
                     </div>
                     <div className='col-sm-3'>
                         <Card className='active'>

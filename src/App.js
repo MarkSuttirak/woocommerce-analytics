@@ -7,6 +7,9 @@ import WaTotalSales from "./pages/revenue/wa-totalsales";
 import WaGrossSales from "./pages/revenue/wa-grosssales";
 import WaNetSales from "./pages/revenue/wa-netsales";
 import WaReturns from "./pages/revenue/wa-returns";
+import WaRevenueCoupons from "./pages/revenue/wa-revenuecoupons";
+import WaRevenueTaxes from "./pages/revenue/wa-revenuetaxes";
+import WaRevenueShipping from "./pages/revenue/wa-revenueshipping";
 
 import WaOrders from "./pages/orders/wa-orders";
 import WaOrderNetSales from "./pages/orders/wa-ordersnetsales";
@@ -35,6 +38,9 @@ const App = () => {
         <Route path="/revenue/gross-sales" element={<WaGrossSales />} />
         <Route path="/revenue/net-sales" element={<WaNetSales />} />
         <Route path="/revenue/returns" element={<WaReturns />} />
+        <Route path="/revenue/coupons" element={<WaRevenueCoupons />} />
+        <Route path="/revenue/taxes" element={<WaRevenueTaxes />} />
+        <Route path="/revenue/shipping" element={<WaRevenueShipping />} />
 
         {/* Orders Pages */}
         <Route path="/orders" element={<WaOrders />} />
