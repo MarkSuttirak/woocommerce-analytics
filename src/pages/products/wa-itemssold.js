@@ -313,7 +313,7 @@ const WaItemsSold = () => {
                 </div>
             </div>
 
-            <div className='mt-4 total-sales-table'>
+            <div className='mt-4 total-sales-table chart-table'>
                 <Card title={
                   <Space>
                     <Title level={5} style={{margin:0}}>Items sold</Title>
@@ -364,7 +364,7 @@ const WaItemsSold = () => {
                         </Button>
                     </Space>
                 }>
-                    <Table rowSelection={rowSelection} columns={productColumns} dataSource={productData}/>
+                    <Table rowSelection={rowSelection} columns={productColumns} dataSource={productData} />
                     <div style={{display:"flex",gap:"16px",justifyContent:"center",marginBottom:"20px"}}>
                         <Text><strong>0</strong> Products</Text>
                         <Text><strong>0</strong> Items sold</Text>

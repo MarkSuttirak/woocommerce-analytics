@@ -29,3 +29,7 @@ a { text-decoration: none !important; }
 .card-with-table .ant-table-cell:first-child {
   padding-left:24px !important;
 }
+
+.chart-table .ant-card-body {
+  padding:120px 24px;
+}
