@@ -15,6 +15,8 @@ import WaVariationsSold from "./pages/variations/wa-variationsold";
 
 import WaDownloads from "./pages/downloads/wa-downloads";
 
+import WaTotalTax from "./pages/taxes/wa-totaltax";
+
 const App = () => {
   return (
     <Router>
@@ -37,6 +39,9 @@ const App = () => {
 
         {/* Downloads Pages */}
         <Route path="/downloads" element={<WaDownloads />} />
+
+        {/* Taxes Pages */}
+        <Route path="/taxes/total-tax" element={<WaTotalTax />} />
       </Routes>
     </Router>
   );
