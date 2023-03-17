@@ -13,6 +13,8 @@ import WaItemsSold from "./pages/products/wa-itemssold";
 
 import WaVariationsSold from "./pages/variations/wa-variationsold";
 
+import WaDownloads from "./pages/downloads/wa-downloads";
+
 const App = () => {
   return (
     <Router>
@@ -32,6 +34,9 @@ const App = () => {
 
         {/* Variations Pages */}
         <Route path="/variations/variations-sold" element={<WaVariationsSold />} />
+
+        {/* Downloads Pages */}
+        <Route path="/downloads" element={<WaDownloads />} />
       </Routes>
     </Router>
   );

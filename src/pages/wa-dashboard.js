@@ -375,7 +375,7 @@ function WaDashboard() {
           <div className='row'>
             {
               (totalSales) && (
-                  <div className='col-sm'>
+                  <div className='col-2 my-2'>
                   <Link to="/revenue/total-sales">
                     <Card>
                         <Paragraph>Total sales</Paragraph>
@@ -394,7 +394,7 @@ function WaDashboard() {
             }
             {
               (netSales) && (
-              <div className='col-sm'>
+              <div className='col-2 my-2'>
                 <Link to="/revenue/net-sales">
                     <Card>
                     <Paragraph>Net sales</Paragraph>
@@ -413,7 +413,7 @@ function WaDashboard() {
             }
             {
               (orders) && (
-                <div className='col-sm'>
+                <div className='col-2 my-2'>
                   <Link to="/orders">
                     <Card>
                       <Paragraph>Orders</Paragraph>
@@ -432,7 +432,7 @@ function WaDashboard() {
             }
             {
               (productsSold) && (
-                <div className='col-sm'>
+                <div className='col-2 my-2'>
                   <Link to="/products/items-sold">
                   <Card>
                     <Paragraph>Products sold</Paragraph>
@@ -451,7 +451,7 @@ function WaDashboard() {
             }
             {
               (returns) && (
-                  <div className='col-sm'>
+                  <div className='col-2 my-2'>
                 <Link to="/revenue/total-sales">
                   <Card>
                     <Paragraph>Returns</Paragraph>
@@ -470,7 +470,7 @@ function WaDashboard() {
             }
             {
               (discountedOrders) && (
-                  <div className='col-sm'>
+                  <div className='col-2 my-2'>
                   <Card>
                     <Paragraph>Discounted orders</Paragraph>
                     <Title level={3} className="row">
@@ -487,7 +487,7 @@ function WaDashboard() {
             }
             {
               (netDiscount) && (
-                  <div className='col-sm'>
+                  <div className='col-2 my-2'>
                   <Card>
                     <Paragraph>Net discount amount</Paragraph>
                     <Title level={3} className="row">
@@ -504,7 +504,7 @@ function WaDashboard() {
             }
             {
               (totalTax) && (
-                  <div className='col-sm'>
+                  <div className='col-2 my-2'>
                   <Card>
                     <Paragraph>Total tax</Paragraph>
                     <Title level={3} className="row">
@@ -521,7 +521,7 @@ function WaDashboard() {
             }
             {
               (orderTax) && (
-                  <div className='col-sm'>
+                  <div className='col-2 my-2'>
                   <Card>
                     <Paragraph>Order tax</Paragraph>
                     <Title level={3} className="row">
@@ -538,7 +538,7 @@ function WaDashboard() {
             }
             {
               (shippingTax) && (
-                  <div className='col-sm'>
+                  <div className='col-2 my-2'>
                   <Card>
                     <Paragraph>Shipping tax</Paragraph>
                     <Title level={3} className="row">
@@ -555,7 +555,7 @@ function WaDashboard() {
             }
             {
               (shipping) && (
-                  <div className='col-sm'>
+                  <div className='col-2 my-2'>
                     <Link to="/revenue/total-sales">
                   <Card>
                     <Paragraph>Shipping</Paragraph>
@@ -574,24 +574,26 @@ function WaDashboard() {
             }
             {
               (downloads) && (
-                  <div className='col-sm'>
-                  <Card>
-                    <Paragraph>Downloads</Paragraph>
-                    <Title level={3} className="row">
-                        <div className='col-sm-6'>
-                          0
-                        </div>
-                        <div className='col-sm-6 text-end'>
-                          0%
-                        </div>
-                    </Title>
-                  </Card>
+                  <div className='col-2 my-2'>
+                  <Link to="/downloads">
+                    <Card>
+                      <Paragraph>Downloads</Paragraph>
+                      <Title level={3} className="row">
+                          <div className='col-sm-6'>
+                            0
+                          </div>
+                          <div className='col-sm-6 text-end'>
+                            0%
+                          </div>
+                      </Title>
+                    </Card>
+                  </Link>
                 </div>
               )
             }
             {
               (grossSales) && (
-                  <div className='col-sm'>
+                  <div className='col-2 my-2'>
                 <Link to="/revenue/gross-sales">
                   <Card>
                     <Paragraph>Gross sales</Paragraph>
@@ -610,7 +612,7 @@ function WaDashboard() {
             }
             {
               (variationsSold) && (
-                  <div className='col-sm'>
+                  <div className='col-2 my-2'>
                   <Link to="/variations/variations-sold">
                     <Card>
                       <Paragraph>Variations Sold</Paragraph>
@@ -629,7 +631,7 @@ function WaDashboard() {
             }
             {
               (averageOrderValue) && (
-                  <div className='col-sm'>
+                  <div className='col-2 my-2'>
                   <Card>
                     <Paragraph>Average Order Value</Paragraph>
                     <Title level={3} className="row">
