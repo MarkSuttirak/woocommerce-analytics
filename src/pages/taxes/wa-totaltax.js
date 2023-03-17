@@ -118,13 +118,10 @@ const WaTotalTax = () => {
     const { Title, Text, Paragraph } = Typography;
     const { RangePicker } = DatePicker;
 
-    const [grossSalesTable, setGrossSalesTable] = useState(true);
-    const [statusTable, setStatusTable] = useState(true);
-    const [customerTable, setCustomerTable] = useState(true);
-    const [customerTypeTable, setCustomerTypeTable] = useState(true);
-    const [productsTable, setProductsTable] = useState(true);
-    const [itemsSoldTable, setItemsSoldTable] = useState(true);
-    const [couponsTable, setCouponsTable] = useState(true);
+    const [rateTable, setRateTable] = useState(true);
+    const [totalTaxTable, setTotalTaxTable] = useState(true);
+    const [orderTaxTable, setOrderTaxTable] = useState(true);
+    const [shippingTaxTable, setShippingTaxTable] = useState(true);
 
     const [revenueTableOptions, setRevenueTableOptions] = useState(false);
     const showRevenueTableOptions = () => {
@@ -153,9 +150,11 @@ const WaTotalTax = () => {
       ];
 
       const showOrdersOptions = [
-        { value: 'all orders', label: 'All orders' },
-        { value: 'advanced filters', label: 'Advanced filters' }
+        { value: 'all taxes', label: 'All taxes' },
+        { value: 'comparison', label: 'Comparison' }
       ];
+
+      const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
       const revenueData = [
         {
@@ -176,66 +175,55 @@ const WaTotalTax = () => {
     
       const revenueColumns = [
         {
-          title: 'Date',
-          dataIndex: 'date',
-          key: 'date',
+          title: 'Tax code',
+          dataIndex: 'taxCode',
+          key: 'taxCode',
           sorter: true,
         },
         {
-          title: 'Order #',
-          dataIndex: 'order',
-          key: 'order',
+          title: 'Rate',
+          dataIndex: 'rate',
+          key: 'rate',
           sorter: true,
+          className: (!rateTable && 'hidden'),
         },
         {
-          title: 'Status',
-          dataIndex: 'status',
-          key: 'status',
+          title: 'Total tax',
+          dataIndex: 'totalTax',
+          key: 'totalTax',
           sorter: true,
-          className: (!statusTable && 'hidden'),
+          className: (!totalTaxTable && 'hidden'),
         },
         {
-            title: 'Customer',
-            dataIndex: 'customer',
-            key: 'customer',
+            title: 'Order tax',
+            dataIndex: 'orderTax',
+            key: 'orderTax',
             sorter: true,
-            className: (!customerTable && 'hidden'),
+            className: (!orderTaxTable && 'hidden'),
           },
           {
-            title: 'Customer type',
-            dataIndex: 'customerType',
-            key: 'customerType',
+            title: 'Shipping tax',
+            dataIndex: 'shippingTax',
+            key: 'shippingTax',
             sorter: true,
-            className: (!customerTypeTable && 'hidden'),
+            className: (!shippingTaxTable && 'hidden'),
           },
           {
-            title: 'Product(s)',
-            dataIndex: 'products',
-            key: 'products',
+            title: 'Orders',
+            dataIndex: 'orders',
+            key: 'orders',
             sorter: true,
-            className: (!productsTable && 'hidden'),
           },
-          {
-            title: 'Items sold',
-            dataIndex: 'itemsSold',
-            key: 'itemsSold',
-            sorter: true,
-            className: (!itemsSoldTable && 'hidden'),
-          },
-          {
-            title: 'Coupons',
-            dataIndex: 'coupons',
-            key: 'coupons',
-            sorter: true,
-            className: (!couponsTable && 'hidden'),
-          },
-          {
-            title: 'Net sales',
-            dataIndex: 'netSales',
-            key: 'netSales',
-            sorter: true,
-          }, 
       ];
+
+      const onSelectChange = (newSelectedRowKeys) => {
+        console.log('selectedRowKeys changed: ', newSelectedRowKeys);
+        setSelectedRowKeys(newSelectedRowKeys);
+      };
+      const rowSelection = {
+        selectedRowKeys,
+        onChange: onSelectChange,
+      };
 
     return (
         <div className="App">
@@ -254,7 +242,7 @@ const WaTotalTax = () => {
             </div>
             <div className='d-inline-block ms-2'>
                 <Paragraph>Show:</Paragraph>
-                <Select defaultValue="all orders" placeholder="Compare to" style={{width: 300}} options={showOrdersOptions} />
+                <Select defaultValue="all taxes" placeholder="Show" style={{width: 300}} options={showOrdersOptions} />
             </div>
             </header>
 
@@ -358,7 +346,7 @@ const WaTotalTax = () => {
                         <FontAwesomeIcon icon={faEllipsisVertical}/>
                     </Button>
                 }>
-                    <Table columns={revenueColumns} dataSource={revenueData}/>
+                    <Table rowSelection={rowSelection} columns={revenueColumns} dataSource={revenueData}/>
                     <div style={{display:"flex",gap:"16px",justifyContent:"center",marginBottom:"20px"}}>
                         <Text><strong>0</strong> tax codes</Text>
                         <Text><strong>$0.00</strong> total tax</Text>
@@ -372,50 +360,34 @@ const WaTotalTax = () => {
             <Drawer title="Charts" placement="right" width="300px" open={revenueTableOptions} onClose={revenueTableCancel}>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setStatusTable}/>
+                        <Switch defaultChecked onChange={setRateTable}/>
                     </div>
                     <div className='col-sm-9'>
-                        <Paragraph>Status</Paragraph>
+                        <Paragraph>Rate</Paragraph>
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setCustomerTable}/>
+                        <Switch defaultChecked onChange={setTotalTaxTable}/>
                     </div>
                     <div className='col-sm-9'>
-                        <Paragraph>Customer</Paragraph>
+                        <Paragraph>Total tax</Paragraph>
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setCustomerTypeTable}/>
+                        <Switch defaultChecked onChange={setOrderTaxTable}/>
                     </div>
                     <div className='col-sm-9'>
-                        <Paragraph>Customer type</Paragraph>
+                        <Paragraph>Order tax</Paragraph>
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setProductsTable}/>
+                        <Switch defaultChecked onChange={setShippingTaxTable}/>
                     </div>
                     <div className='col-sm-9'>
-                        <Paragraph>Product(s)</Paragraph>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setItemsSoldTable}/>
-                    </div>
-                    <div className='col-sm-9'>
-                        <Paragraph>Items sold</Paragraph>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setCouponsTable}/>
-                    </div>
-                    <div className='col-sm-9'>
-                        <Paragraph>Coupon(s)</Paragraph>
+                        <Paragraph>Shipping tax</Paragraph>
                     </div>
                 </div>
             </Drawer>
