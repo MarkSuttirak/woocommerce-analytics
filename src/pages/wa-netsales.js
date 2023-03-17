@@ -7,7 +7,7 @@ import { faEllipse, faEllipsisVertical, faChartSimple, faChartLine, faCloudArrow
 import { Line, Column } from '@ant-design/plots';
 import { Link } from 'react-router-dom';
 
-const WaTotalSales = () => {
+const WaNetSales = () => {
     const DemoLine = () => {
         const [data, setData] = useState([]);
       
@@ -280,17 +280,17 @@ const WaTotalSales = () => {
                 <div className='row'>
                     <div className='col-sm-3'>
                     <Link to="/gross-sales">
-                        <Card>
-                            <Paragraph>Gross sales</Paragraph>
-                            <Title level={3} className="row">
-                                <div className='col-sm-6'>
-                                $0.00
-                                </div>
-                                <div className='col-sm-6 text-end'>
-                                0%
-                                </div>
-                            </Title>
-                        </Card>
+                    <Card>
+                        <Paragraph>Gross sales</Paragraph>
+                        <Title level={3} className="row">
+                            <div className='col-sm-6'>
+                            $0.00
+                            </div>
+                            <div className='col-sm-6 text-end'>
+                            0%
+                            </div>
+                        </Title>
+                    </Card>
                     </Link>
                     </div>
                     <div className='col-sm-3'>
@@ -320,19 +320,17 @@ const WaTotalSales = () => {
                         </Card>
                     </div>
                     <div className='col-sm-3'>
-                        <Link to="/net-sales">
-                          <Card>
-                              <Paragraph>Net sales</Paragraph>
-                              <Title level={3} className="row">
-                                  <div className='col-sm-6'>
-                                  $0.00
-                                  </div>
-                                  <div className='col-sm-6 text-end'>
-                                  0%
-                                  </div>
-                              </Title>
-                          </Card>
-                        </Link>
+                        <Card className='active'>
+                            <Paragraph>Net sales</Paragraph>
+                            <Title level={3} className="row">
+                                <div className='col-sm-6'>
+                                $0.00
+                                </div>
+                                <div className='col-sm-6 text-end'>
+                                0%
+                                </div>
+                            </Title>
+                        </Card>
                     </div>
                     <div class="w-100 d-none d-md-block my-2"></div>
                     <div className='col-sm-3'>
@@ -362,17 +360,19 @@ const WaTotalSales = () => {
                         </Card>
                     </div>
                     <div className='col-sm-3'>
-                        <Card className='active'>
-                            <Paragraph>Total sales</Paragraph>
-                            <Title level={3} className="row">
-                                <div className='col-sm-6'>
-                                $0.00
-                                </div>
-                                <div className='col-sm-6 text-end'>
-                                0%
-                                </div>
-                            </Title>
-                        </Card>
+                        <Link to="/total-sales">
+                            <Card>
+                                <Paragraph>Total sales</Paragraph>
+                                <Title level={3} className="row">
+                                    <div className='col-sm-6'>
+                                    $0.00
+                                    </div>
+                                    <div className='col-sm-6 text-end'>
+                                    0%
+                                    </div>
+                                </Title>
+                            </Card>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -380,7 +380,7 @@ const WaTotalSales = () => {
             <div className='mt-4 total-sales-table'>
                 <Card title={
                   <Space>
-                    <Title level={5} style={{margin:0}}>Total sales</Title>
+                    <Title level={5} style={{margin:0}}>Net sales</Title>
                     <Checkbox>Today</Checkbox>
                     <Checkbox>Previous year</Checkbox>
                   </Space>
@@ -507,4 +507,4 @@ const WaTotalSales = () => {
     )
 }
 
-export default WaTotalSales;
+export default WaNetSales;

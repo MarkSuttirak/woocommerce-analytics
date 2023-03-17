@@ -318,17 +318,19 @@ const WaGrossSales = () => {
                         </Card>
                     </div>
                     <div className='col-sm-3'>
-                        <Card>
-                            <Paragraph>Net sales</Paragraph>
-                            <Title level={3} className="row">
-                                <div className='col-sm-6'>
-                                $0.00
-                                </div>
-                                <div className='col-sm-6 text-end'>
-                                0%
-                                </div>
-                            </Title>
-                        </Card>
+                        <Link to="/net-sales">
+                          <Card>
+                              <Paragraph>Net sales</Paragraph>
+                              <Title level={3} className="row">
+                                  <div className='col-sm-6'>
+                                  $0.00
+                                  </div>
+                                  <div className='col-sm-6 text-end'>
+                                  0%
+                                  </div>
+                              </Title>
+                          </Card>
+                        </Link>
                     </div>
                     <div class="w-100 d-none d-md-block my-2"></div>
                     <div className='col-sm-3'>
