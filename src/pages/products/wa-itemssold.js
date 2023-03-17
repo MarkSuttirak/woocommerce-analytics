@@ -7,7 +7,7 @@ import { faEllipse, faEllipsisVertical, faChartSimple, faChartLine, faCloudArrow
 import { Line, Column } from '@ant-design/plots';
 import { Link } from 'react-router-dom';
 
-const WaOrders = () => {
+const WaItemsSold = () => {
     const DemoLine = () => {
         const [data, setData] = useState([]);
       
@@ -118,13 +118,12 @@ const WaOrders = () => {
     const { Title, Text, Paragraph } = Typography;
     const { RangePicker } = DatePicker;
 
-    const [grossSalesTable, setGrossSalesTable] = useState(true);
+    const [skuTable, setSkuTable] = useState(true);
+    const [ordersTable, setOrdersTable] = useState(true);
+    const [categoryTable, setCategoryTable] = useState(true);
+    const [variationsTable, setVariationsTable] = useState(true);
     const [statusTable, setStatusTable] = useState(true);
-    const [customerTable, setCustomerTable] = useState(true);
-    const [customerTypeTable, setCustomerTypeTable] = useState(true);
-    const [productsTable, setProductsTable] = useState(true);
-    const [itemsSoldTable, setItemsSoldTable] = useState(true);
-    const [couponsTable, setCouponsTable] = useState(true);
+    const [stockTable, setStockTable] = useState(true);
 
     const [revenueTableOptions, setRevenueTableOptions] = useState(false);
     const showRevenueTableOptions = () => {
@@ -203,64 +202,64 @@ const WaOrders = () => {
     
       const revenueColumns = [
         {
-          title: 'Date',
-          dataIndex: 'date',
-          key: 'date',
+          title: 'Product title',
+          dataIndex: 'productTitle',
+          key: 'productTitle',
           sorter: true,
         },
         {
-          title: 'Order #',
-          dataIndex: 'order',
-          key: 'order',
+          title: 'SKU',
+          dataIndex: 'sku',
+          key: 'sku',
+          sorter: true,
+          className: (!skuTable && 'hidden'),
+        },
+        {
+          title: 'Items sold',
+          dataIndex: 'itemsSold',
+          key: 'itemsSold',
           sorter: true,
         },
         {
-          title: 'Status',
-          dataIndex: 'status',
-          key: 'status',
-          sorter: true,
-          className: (!statusTable && 'hidden'),
-        },
-        {
-            title: 'Customer',
-            dataIndex: 'customer',
-            key: 'customer',
-            sorter: true,
-            className: (!customerTable && 'hidden'),
-          },
-          {
-            title: 'Customer type',
-            dataIndex: 'customerType',
-            key: 'customerType',
-            sorter: true,
-            className: (!customerTypeTable && 'hidden'),
-          },
-          {
-            title: 'Product(s)',
-            dataIndex: 'products',
-            key: 'products',
-            sorter: true,
-            className: (!productsTable && 'hidden'),
-          },
-          {
-            title: 'Items sold',
-            dataIndex: 'itemsSold',
-            key: 'itemsSold',
-            sorter: true,
-            className: (!itemsSoldTable && 'hidden'),
-          },
-          {
-            title: 'Coupons',
-            dataIndex: 'coupons',
-            key: 'coupons',
-            sorter: true,
-            className: (!couponsTable && 'hidden'),
-          },
-          {
             title: 'Net sales',
             dataIndex: 'netSales',
             key: 'netSales',
             sorter: true,
+          },
+          {
+            title: 'Orders',
+            dataIndex: 'orders',
+            key: 'orders',
+            sorter: true,
+            className: (!ordersTable && 'hidden'),
+          },
+          {
+            title: 'Category',
+            dataIndex: 'category',
+            key: 'category',
+            sorter: true,
+            className: (!categoryTable && 'hidden'),
+          },
+          {
+            title: 'Variations',
+            dataIndex: 'variations',
+            key: 'variations',
+            sorter: true,
+            className: (!variationsTable && 'hidden'),
+          },
+          {
+            title: 'Status',
+            dataIndex: 'status',
+            key: 'status',
+            sorter: true,
+            className: (!statusTable && 'hidden'),
+          },
+          {
+            title: 'Stock',
+            dataIndex: 'stock',
+            key: 'stock',
+            sorter: true,
+            className: (!stockTable && 'hidden'),
           }, 
       ];
 
@@ -290,7 +289,7 @@ const WaOrders = () => {
             </div>
             <div className='d-inline-block ms-2'>
                 <Paragraph>Show:</Paragraph>
-                <Select defaultValue="all orders" placeholder="Compare to" style={{width: 300}} options={showProductsOptions} />
+                <Select defaultValue="all products" placeholder="Compare to" style={{width: 300}} options={showProductsOptions} />
             </div>
             </header>
 
@@ -370,7 +369,13 @@ const WaOrders = () => {
             </div>
 
             <div className='mt-4 revenue-table card-with-table'>
-                <Card title="Orders" extra={
+                <Card title={
+                    <Space>
+                        <Title level={5} style={{margin:0}}>Products</Title>
+                        <Paragraph style={{margin:0}}>Compare</Paragraph>
+                        <Input type="text" style={{width:"calc(100% + 40vw)"}} />
+                    </Space>
+                } extra={
                     <Space>
                         <Button type='ghost'>
                             <Space>
@@ -385,17 +390,47 @@ const WaOrders = () => {
                 }>
                     <Table rowSelection={rowSelection} columns={revenueColumns} dataSource={revenueData}/>
                     <div style={{display:"flex",gap:"16px",justifyContent:"center",marginBottom:"20px"}}>
-                        <Text><strong>0</strong> Orders</Text>
-                        <Text><strong>0</strong> Customers</Text>
                         <Text><strong>0</strong> Products</Text>
                         <Text><strong>0</strong> Items sold</Text>
-                        <Text><strong>0</strong> Coupons</Text>
-                        <Text><strong>$0.00</strong> net sales</Text>
+                        <Text><strong>$0.00</strong> Net sales</Text>
+                        <Text><strong>0</strong> Orders</Text>
                     </div>
                 </Card>
             </div>
 
             <Drawer title="Charts" placement="right" width="300px" open={revenueTableOptions} onClose={revenueTableCancel}>
+                <div className='row'>
+                    <div className='col-sm-3'>
+                        <Switch defaultChecked onChange={setSkuTable}/>
+                    </div>
+                    <div className='col-sm-9'>
+                        <Paragraph>SKU</Paragraph>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-sm-3'>
+                        <Switch defaultChecked onChange={setOrdersTable}/>
+                    </div>
+                    <div className='col-sm-9'>
+                        <Paragraph>Orders</Paragraph>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-sm-3'>
+                        <Switch defaultChecked onChange={setCategoryTable}/>
+                    </div>
+                    <div className='col-sm-9'>
+                        <Paragraph>Category</Paragraph>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-sm-3'>
+                        <Switch defaultChecked onChange={setVariationsTable}/>
+                    </div>
+                    <div className='col-sm-9'>
+                        <Paragraph>Variations</Paragraph>
+                    </div>
+                </div>
                 <div className='row'>
                     <div className='col-sm-3'>
                         <Switch defaultChecked onChange={setStatusTable}/>
@@ -406,42 +441,10 @@ const WaOrders = () => {
                 </div>
                 <div className='row'>
                     <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setCustomerTable}/>
+                        <Switch defaultChecked onChange={setStockTable}/>
                     </div>
                     <div className='col-sm-9'>
-                        <Paragraph>Customer</Paragraph>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setCustomerTypeTable}/>
-                    </div>
-                    <div className='col-sm-9'>
-                        <Paragraph>Customer type</Paragraph>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setProductsTable}/>
-                    </div>
-                    <div className='col-sm-9'>
-                        <Paragraph>Product(s)</Paragraph>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setItemsSoldTable}/>
-                    </div>
-                    <div className='col-sm-9'>
-                        <Paragraph>Items sold</Paragraph>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-sm-3'>
-                        <Switch defaultChecked onChange={setCouponsTable}/>
-                    </div>
-                    <div className='col-sm-9'>
-                        <Paragraph>Coupon(s)</Paragraph>
+                        <Paragraph>Stock</Paragraph>
                     </div>
                 </div>
             </Drawer>
@@ -449,4 +452,4 @@ const WaOrders = () => {
     )
 }
 
-export default WaOrders;
+export default WaItemsSold;
