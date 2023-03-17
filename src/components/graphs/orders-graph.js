@@ -7,10 +7,10 @@ import { faEllipse, faEllipsisVertical, faChartSimple, faChartLine, faCloudArrow
 import { Line, Column } from '@ant-design/plots';
 import { Link } from 'react-router-dom';
 
-const RevenueGraph = (props) => {
+const OrdersGraph = (props) => {
 
     const { Title, Text, Paragraph } = Typography;
-
+    
     const DemoLine = () => {
         const [data, setData] = useState([]);
       
@@ -152,4 +152,4 @@ const RevenueGraph = (props) => {
       )
 }
 
-export default RevenueGraph;
+export default OrdersGraph;
