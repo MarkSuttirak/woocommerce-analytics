@@ -23,6 +23,7 @@ import WaVariationsSold from "./pages/variations/wa-variationsold";
 import WaDownloads from "./pages/downloads/wa-downloads";
 
 import WaTotalTax from "./pages/taxes/wa-totaltax";
+import WaOrderTax from "./pages/taxes/wa-ordertax";
 
 import WaDiscounted from "./pages/coupons/wa-discounted";
 import WaAmount from "./pages/coupons/wa-amount";
@@ -59,6 +60,7 @@ const App = () => {
 
         {/* Taxes Pages */}
         <Route path="/taxes/total-tax" element={<WaTotalTax />} />
+        <Route path="/taxes/order-tax" element={<WaOrderTax />} />
 
         {/* Coupon Pages */}
         <Route path="/coupons/discounted-orders" element={<WaDiscounted />} />

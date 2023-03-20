@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import TaxesGraph from '../../components/graphs/taxes-graph';
 import TaxesTable from '../../components/tables/taxes-table';
 
-const WaTotalTax = () => {
+const WaOrderTax = () => {
 
     const { Title, Text, Paragraph } = Typography;
     const { RangePicker } = DatePicker;
@@ -63,32 +63,32 @@ const WaTotalTax = () => {
             <div className='mt-4 performance'>
                 <div className='row'>
                     <div className='col-sm-3'>
-                    <Card className='active'>
-                        <Paragraph>Total tax</Paragraph>
-                        <Title level={3} className="row">
-                            <div className='col-sm-6'>
-                            $0.00
-                            </div>
-                            <div className='col-sm-6 text-end'>
-                            0%
-                            </div>
-                        </Title>
-                    </Card>
+                    <Link to="/taxes/total-tax">
+                        <Card>
+                            <Paragraph>Total tax</Paragraph>
+                            <Title level={3} className="row">
+                                <div className='col-sm-6'>
+                                $0.00
+                                </div>
+                                <div className='col-sm-6 text-end'>
+                                0%
+                                </div>
+                            </Title>
+                        </Card>
+                    </Link>
                     </div>
                     <div className='col-sm-3'>
-                        <Link to="/taxes/order-tax">
-                            <Card>
-                                <Paragraph>Order tax</Paragraph>
-                                <Title level={3} className="row">
-                                    <div className='col-sm-6'>
-                                    $0.00
-                                    </div>
-                                    <div className='col-sm-6 text-end'>
-                                    0%
-                                    </div>
-                                </Title>
-                            </Card>
-                        </Link>
+                        <Card className='active'>
+                            <Paragraph>Order tax</Paragraph>
+                            <Title level={3} className="row">
+                                <div className='col-sm-6'>
+                                $0.00
+                                </div>
+                                <div className='col-sm-6 text-end'>
+                                0%
+                                </div>
+                            </Title>
+                        </Card>
                     </div>
                     <div className='col-sm-3'>
                         <Card>
@@ -119,7 +119,7 @@ const WaTotalTax = () => {
                 </div>
             </div>
 
-            <TaxesGraph title="Total tax" link='https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json' />
+            <TaxesGraph title="Order tax" link='https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json' />
 
             <TaxesTable />
 
@@ -127,4 +127,4 @@ const WaTotalTax = () => {
     )
 }
 
-export default WaTotalTax;
+export default WaOrderTax;

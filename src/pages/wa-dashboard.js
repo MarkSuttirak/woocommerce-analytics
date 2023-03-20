@@ -528,17 +528,19 @@ function WaDashboard() {
             {
               (orderTax) && (
                   <div className='col-2 my-2'>
-                  <Card>
-                    <Paragraph>Order tax</Paragraph>
-                    <Title level={3} className="row">
-                        <div className='col-sm-6'>
-                          $0.00
-                        </div>
-                        <div className='col-sm-6 text-end'>
-                          0%
-                        </div>
-                    </Title>
-                  </Card>
+                  <Link to="/taxes/order-tax">
+                    <Card>
+                      <Paragraph>Order tax</Paragraph>
+                      <Title level={3} className="row">
+                          <div className='col-sm-6'>
+                            $0.00
+                          </div>
+                          <div className='col-sm-6 text-end'>
+                            0%
+                          </div>
+                      </Title>
+                    </Card>
+                  </Link>
                 </div>
               )
             }
