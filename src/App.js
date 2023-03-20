@@ -24,6 +24,8 @@ import WaDownloads from "./pages/downloads/wa-downloads";
 
 import WaTotalTax from "./pages/taxes/wa-totaltax";
 import WaOrderTax from "./pages/taxes/wa-ordertax";
+import WaShippingTax from "./pages/taxes/wa-shippingtax";
+import WaOrdersofTax from "./pages/taxes/wa-ordersoftax";
 
 import WaDiscounted from "./pages/coupons/wa-discounted";
 import WaAmount from "./pages/coupons/wa-amount";
@@ -61,6 +63,8 @@ const App = () => {
         {/* Taxes Pages */}
         <Route path="/taxes/total-tax" element={<WaTotalTax />} />
         <Route path="/taxes/order-tax" element={<WaOrderTax />} />
+        <Route path="/taxes/shipping-tax" element={<WaShippingTax />} />
+        <Route path="/taxes/orders" element={<WaOrdersofTax />} />
 
         {/* Coupon Pages */}
         <Route path="/coupons/discounted-orders" element={<WaDiscounted />} />

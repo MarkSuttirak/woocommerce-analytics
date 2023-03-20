@@ -547,24 +547,26 @@ function WaDashboard() {
             {
               (shippingTax) && (
                   <div className='col-2 my-2'>
-                  <Card>
-                    <Paragraph>Shipping tax</Paragraph>
-                    <Title level={3} className="row">
-                        <div className='col-sm-6'>
-                          $0.00
-                        </div>
-                        <div className='col-sm-6 text-end'>
-                          0%
-                        </div>
-                    </Title>
-                  </Card>
+                  <Link to="/taxes/shipping-tax">
+                    <Card>
+                      <Paragraph>Shipping tax</Paragraph>
+                      <Title level={3} className="row">
+                          <div className='col-sm-6'>
+                            $0.00
+                          </div>
+                          <div className='col-sm-6 text-end'>
+                            0%
+                          </div>
+                      </Title>
+                    </Card>
+                  </Link>
                 </div>
               )
             }
             {
               (shipping) && (
                   <div className='col-2 my-2'>
-                    <Link to="/revenue/total-sales">
+                    <Link to="/revenue/shipping">
                   <Card>
                     <Paragraph>Shipping</Paragraph>
                     <Title level={3} className="row">
