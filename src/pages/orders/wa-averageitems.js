@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import OrdersGraph from '../../components/graphs/orders-graph';
 import OrdersTable from '../../components/tables/orders-table';
 
-const WaAverageOrderValue = () => {
+const WaAverageItemsPerOrder = () => {
 
     const { Title, Text, Paragraph } = Typography;
     const { RangePicker } = DatePicker;
@@ -92,25 +92,12 @@ const WaAverageOrderValue = () => {
                         </Link>
                     </div>
                     <div className='col-sm-3'>
-                        <Card className='active'>
-                            <Paragraph>Average order value</Paragraph>
-                            <Title level={3} className="row">
-                                <div className='col-sm-6'>
-                                $0.00
-                                </div>
-                                <div className='col-sm-6 text-end'>
-                                0%
-                                </div>
-                            </Title>
-                        </Card>
-                    </div>
-                    <div className='col-sm-3'>
-                        <Link to="/orders/average-items-per-order">
+                        <Link to="/orders/average-order-value">
                             <Card>
-                                <Paragraph>Average items per order</Paragraph>
+                                <Paragraph>Average order value</Paragraph>
                                 <Title level={3} className="row">
                                     <div className='col-sm-6'>
-                                    0
+                                    $0.00
                                     </div>
                                     <div className='col-sm-6 text-end'>
                                     0%
@@ -119,10 +106,23 @@ const WaAverageOrderValue = () => {
                             </Card>
                         </Link>
                     </div>
+                    <div className='col-sm-3'>
+                        <Card className='active'>
+                            <Paragraph>Average items per order</Paragraph>
+                            <Title level={3} className="row">
+                                <div className='col-sm-6'>
+                                0
+                                </div>
+                                <div className='col-sm-6 text-end'>
+                                0%
+                                </div>
+                            </Title>
+                        </Card>
+                    </div>
                 </div>
             </div>
 
-            <OrdersGraph title="Average order value" link="https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json" />
+            <OrdersGraph title="Average items per order" link="https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json" />
 
             <OrdersTable />
             
@@ -130,4 +130,4 @@ const WaAverageOrderValue = () => {
     )
 }
 
-export default WaAverageOrderValue;
+export default WaAverageItemsPerOrder;

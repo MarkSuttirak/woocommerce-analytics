@@ -13,6 +13,8 @@ import WaRevenueShipping from "./pages/revenue/wa-revenueshipping";
 
 import WaOrders from "./pages/orders/wa-orders";
 import WaOrderNetSales from "./pages/orders/wa-ordersnetsales";
+import WaAverageOrderValue from "./pages/orders/wa-aov";
+import WaAverageItemsPerOrder from "./pages/orders/wa-averageitems";
 
 import WaItemsSold from "./pages/products/wa-itemssold";
 import WaProductNetSales from "./pages/products/wa-productnetsales";
@@ -48,6 +50,8 @@ const App = () => {
         {/* Orders Pages */}
         <Route path="/orders" element={<WaOrders />} />
         <Route path="/orders/net-sales" element={<WaOrderNetSales />} />
+        <Route path="/orders/average-order-value" element={<WaAverageOrderValue />} />
+        <Route path="/orders/average-items-per-order" element={<WaAverageItemsPerOrder />} />
 
         {/* Products Pages */}
         <Route path="/products/items-sold" element={<WaItemsSold />} />
