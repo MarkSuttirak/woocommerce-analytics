@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import VariationsGraph from '../../components/graphs/variations-graph';
 import VariationsTable from '../../components/tables/variations-table';
 
-const WaVariationsSold = () => {
+const WaVariationsOrders = () => {
 
     const { Title, Text, Paragraph } = Typography;
     const { RangePicker } = DatePicker;
@@ -65,17 +65,19 @@ const WaVariationsSold = () => {
             <div className='mt-4 performance'>
                 <div className='row'>
                     <div className='col-sm'>
-                    <Card className='active'>
-                        <Paragraph>Items sold</Paragraph>
-                        <Title level={3} className="row">
-                            <div className='col-sm-6'>
-                            0
-                            </div>
-                            <div className='col-sm-6 text-end'>
-                            0%
-                            </div>
-                        </Title>
-                    </Card>
+                    <Link to="/variations/variations-sold">
+                        <Card>
+                            <Paragraph>Items sold</Paragraph>
+                            <Title level={3} className="row">
+                                <div className='col-sm-6'>
+                                0
+                                </div>
+                                <div className='col-sm-6 text-end'>
+                                0%
+                                </div>
+                            </Title>
+                        </Card>
+                    </Link>
                     </div>
                     <div className='col-sm'>
                         <Link to="/variations/net-sales">
@@ -93,24 +95,22 @@ const WaVariationsSold = () => {
                         </Link>
                     </div>
                     <div className='col-sm'>
-                        <Link to="/variations/orders">
-                            <Card>
-                                <Paragraph>Orders</Paragraph>
-                                <Title level={3} className="row">
-                                    <div className='col-sm-6'>
-                                    0
-                                    </div>
-                                    <div className='col-sm-6 text-end'>
-                                    0%
-                                    </div>
-                                </Title>
-                            </Card>
-                        </Link>
+                        <Card className='active'>
+                            <Paragraph>Orders</Paragraph>
+                            <Title level={3} className="row">
+                                <div className='col-sm-6'>
+                                0
+                                </div>
+                                <div className='col-sm-6 text-end'>
+                                0%
+                                </div>
+                            </Title>
+                        </Card>
                     </div>
                 </div>
             </div>
 
-            <VariationsGraph title="Items sold" link="https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json" />
+            <VariationsGraph title="Orders" link="https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json" />
             
             <VariationsTable />
             
@@ -118,4 +118,4 @@ const WaVariationsSold = () => {
     )
 }
 
-export default WaVariationsSold;
+export default WaVariationsOrders;

@@ -21,6 +21,8 @@ import WaProductNetSales from "./pages/products/wa-productnetsales";
 import WaProductOrders from "./pages/products/wa-productorders";
 
 import WaVariationsSold from "./pages/variations/wa-variationsold";
+import WaVariationsNetSales from "./pages/variations/wa-netsalesvariation";
+import WaVariationsOrders from "./pages/variations/wa-ordersvariation";
 
 import WaDownloads from "./pages/downloads/wa-downloads";
 
@@ -60,6 +62,8 @@ const App = () => {
 
         {/* Variations Pages */}
         <Route path="/variations/variations-sold" element={<WaVariationsSold />} />
+        <Route path="/variations/net-sales" element={<WaVariationsNetSales />} />
+        <Route path="/variations/orders" element={<WaVariationsOrders />} />
 
         {/* Downloads Pages */}
         <Route path="/downloads" element={<WaDownloads />} />

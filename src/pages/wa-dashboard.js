@@ -642,17 +642,19 @@ function WaDashboard() {
             {
               (averageOrderValue) && (
                   <div className='col-2 my-2'>
-                  <Card>
-                    <Paragraph>Average Order Value</Paragraph>
-                    <Title level={3} className="row">
-                        <div className='col-sm-6'>
-                          $0.00
-                        </div>
-                        <div className='col-sm-6 text-end'>
-                          0%
-                        </div>
-                    </Title>
-                  </Card>
+                  <Link to="/orders/average-order-value">
+                    <Card>
+                      <Paragraph>Average Order Value</Paragraph>
+                      <Title level={3} className="row">
+                          <div className='col-sm-6'>
+                            $0.00
+                          </div>
+                          <div className='col-sm-6 text-end'>
+                            0%
+                          </div>
+                      </Title>
+                    </Card>
+                  </Link>
                 </div>
               )
             }
