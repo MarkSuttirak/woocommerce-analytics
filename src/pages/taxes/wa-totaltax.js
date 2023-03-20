@@ -103,7 +103,7 @@ const WaTotalTax = () => {
                     </div>
                     <div className='col-sm-3'>
                         <Card>
-                            <Paragraph>Shipping</Paragraph>
+                            <Paragraph>Orders</Paragraph>
                             <Title level={3} className="row">
                                 <div className='col-sm-6'>
                                 0
